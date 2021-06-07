@@ -1,0 +1,16 @@
+This repo contains Rivendell installer systems for RedHat-ish distros.
+Actual installers live in branches with names of the form:
+
+<codename>_<version>
+
+where:
+  <distro-name> - The base name of the distro --i.e. 'rhel' or 'fedora'.
+                  This value can typically be found in the
+	          'ID' or 'ID_LIKE' fields of '/etc/os-release'.
+		  NOTE: The name 'rhel' includes 'clone' versions of
+                  RedHat Enterprise Linux, such as CentOS or AlmaLinux.
+
+   <version> - The major version number --i.e. '7', '8', etc. This value
+               can be found in the 'VERSION_ID' field of '/etc/os-release'.
+
+The default 'master' branch contains nothing execept this README file.
