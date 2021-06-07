@@ -1,0 +1,18 @@
+This is the 'INSTALL' file for the rivendell-install package.
+
+Please see the 'README' file for an overview and basic rationale for
+this package.
+
+Installing Rivendell using the rivendell-install package consists of three
+primary steps:
+
+1) Install the base RHEL (CentOS, Scientific Linux) distribution in
+   'Minimal' mode and establish an Internet connection.
+
+2) Bootstrap and run the installation script.
+
+3) Reboot and finish up final details.
+
+The specific installation steps vary somewhat depending upon which major
+RHEL version is being used.  See the documentation in 'docs/' for detailed
+steps for each.
