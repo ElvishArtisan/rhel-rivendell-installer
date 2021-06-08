@@ -13,4 +13,4 @@ where:
    <version> - The major version number --i.e. '7', '8', etc. This value
                can be found in the 'VERSION_ID' field of '/etc/os-release'.
 
-The default 'master' branch contains nothing execept this README file.
+The default 'master' branch contains nothing except this README file.
