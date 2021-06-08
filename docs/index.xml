@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
 <info>
-  <title>Installing Rivendell 3 on a CentOS-7 System</title>
+  <title>Installing Rivendell 4 on a CentOS-7 System</title>
   <author>
     <personname>
       <firstname>Fred</firstname>
@@ -375,17 +375,87 @@
   </para>
   <para>
     <userinput>wget
-    http://download.paravelsystems.com/CentOS/7rd3/Paravel-Rivendell3.repo
-    -P /etc/yum.repos.d/</userinput>
+    http://software.paravelsystems.com/CentOS/7rd4/install_rivendell.sh -P .</userinput>
   </para>
   <para>
-    <userinput>wget 
-    http://download.paravelsystems.com/CentOS/7rd3/RPM-GPG-KEY-Paravel-Broadcast
-    -P /etc/pki/rpm-gpg</userinput>
+    <userinput> chmod 755 install_rivendell.sh</userinput>
   </para>
   <para>
-    <userinput>yum -y install rivendell-install</userinput>
+    <userinput>./install_rivendell.sh</userinput>
   </para>
+  <para>
+    The installer will now start up and display its main menu.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel7-installer_menu.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+
+  <para xml:id="installation_modes">
+    The installer supports three different &quot;installation modes&quot;
+    for Rivendell, as follows:
+  </para>
+  <para>
+    <variablelist>
+      <varlistentry>
+	<term>Standalone</term>
+	<listitem>
+	  <para>
+	    Install system components (Rivendell application code, MySQL
+	    database server and audio file store) on this machine, allowing
+	    it to operate as a completely self-contained and autonomous
+	    Rivendell system.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term>Server</term>
+	<listitem>
+	  <para>
+	    The same as &quot;Standalone&quot;, but will also configure
+	    the MySQL database and audio file store components to be shared
+	    with additional &quot;client mode&quot; Rivendell systems.
+	  </para>
+	</listitem>
+      </varlistentry>
+      <varlistentry>
+	<term>Client</term>
+	<listitem>
+	  <para>
+	    Install only the Rivendell application code and configure
+	    the system to use the MySQL database and audio file store
+	    components located on a separate &quot;server&quot; system.
+	    You will be prompted to enter the IP address of that server
+	    system before the installation starts.
+	  </para>
+	  <para>
+	    The &quot;server&quot; does not actually need to be online
+	    during this installation.
+	  </para>
+	</listitem>
+      </varlistentry>
+    </variablelist>
+  </para>
+  <para>
+    Enter the number for the type of installation desired, then press the
+    <userinput>Enter</userinput> key.
+  </para>
+  <para>
+    Depending upon the speed of the Internet connection, installation will
+    typically take around fifteen minutes. When installation is
+    complete, reboot the system with the command:
+  </para>
+  <para>
+    <userinput>sudo reboot</userinput>
+  </para>
+  <para>
+    After the reboot, the system is ready for service.
+  </para>
+
+
   <para>
     Three different types of installation are available. For a stand-alone
     setup (single, self-contained Rivendell system), start the script

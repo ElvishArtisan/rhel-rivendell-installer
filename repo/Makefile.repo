@@ -1,0 +1,21 @@
+# Makefile for the Paravel 7rd4 repo.
+
+#SHELL := /bin/bash
+
+#REPO_KEY = "Paravel Ubuntu 20.04 Test Key"
+
+
+sign:	clean sane
+	rpm --resign CentOS/*.rpm
+	createrepo .
+
+
+post:	sane
+	rsync -rptgoDv --copy-links --delete --exclude Makefile --exclude sanity_check.sh . software.paravelsystems.com::redhat_7/7rd4/
+
+sane:	
+	./sanity_check.sh  
+
+clean:
+	rm -rf repodata
+

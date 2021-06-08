@@ -44,8 +44,8 @@ function CheckNetwork {
 
 function AddRepos {
     echo "Adding repo..."
-    wget http://software.paravelsystems.com/CentOS/7rd4/RPM-GPG-KEY-Paravel-Broadcast /etc/pki/rpm-gpg/
-    wget http://software.paravelsystems.com/CentOS/7rd4/Paravel-Rivendell4.repo
+    wget http://software.paravelsystems.com/CentOS/7rd4/RPM-GPG-KEY-Paravel-Broadcast -P /etc/pki/rpm-gpg/
+    wget http://software.paravelsystems.com/CentOS/7rd4/Paravel-Rivendell4.repo -P /etc/yum.repos.d/
     yum -y clean expire-cache
     yum -y install rhel-rivendell-installer
 }
@@ -55,7 +55,7 @@ function InstallStandalone {
     CheckNetwork
     AddRepos
     /usr/share/rhel-rivendell-installer/installer_install_rivendell.sh --standalone
-    apt -y remove ubuntu-rivendell-installer
+#    yum -y remove rhel-rivendell-installer
     exit 0
 }
 
@@ -64,7 +64,7 @@ function InstallServer {
     CheckNetwork
     AddRepos
     /usr/share/rhel-rivendell-installer/installer_install_rivendell.sh --server
-    yum -y remove ubuntu-rivendell-installer
+#    yum -y remove rhel-rivendell-installer
     exit 0
 }
 

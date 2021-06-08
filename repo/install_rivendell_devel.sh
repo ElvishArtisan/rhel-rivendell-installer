@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# install_rivendell_devel.sh
+#
+# Install the Rivendell development tools on a CentOS 7 system
+#
+#    Copyright (C) 2016-2021 Fred Gleason <fredg@paravelsystems.com>
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of version 2 of the GNU General Public License as
+#    published by the Free Software Foundation;
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, 
+#    Boston, MA  02111-1307  USA
+#
+
+#
+# Install Packages
+#
+yum -y install git gcc-c++ automake autoconf libtool qt-devel libcurl-devel cdparanoia-devel hpklinux-devel alsa-lib-devel jack-audio-connection-kit-devel libsamplerate-devel libsndfile-devel id3lib-devel libvorbis-devel flac-devel pam-devel soundtouch-devel twolame-devel libmad-devel lame-devel rpm-build createrepo fop docbook5-style-xsl libxslt kernel-devel rpm-sign man-pages openssl-devel taglib-devel libmusicbrainz5-devel libdiscid-devel libcoverart libcoverart-devel
+
+#
+# Configure Environment
+#
+echo "DOCBOOK_STYLESHEETS=/usr/share/sgml/docbook/xsl-ns-stylesheets" > /etc/profile.d/docbook5.sh
+
+#
+# Finish Up
+#
+echo
+echo "Installation of the Rivendell development tools is complete."
+echo

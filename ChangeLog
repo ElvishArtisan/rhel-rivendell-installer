@@ -1,3 +1,6 @@
 2021-06-07 Fred Gleason <fredg@paravelsystems.com>
 	* Created branch 'rhel_7'.
 	* Populated initial assets and scripts.
+2021-06-07 Fred Gleason <fredg@paravelsystems.com>
+	* Added 'repo/'.
+	* Fixed various issues in 'assets/installer_install_rivendell.sh'.

@@ -1,8 +1,8 @@
 ## automake.am
 ##
-## docs/Automake.am for rivendell-install
+## docs/Automake.am for rhel-rivendell-installer
 ##
-## (C) Copyright 2016-2018 Fred Gleason <fredg@paravelsystems.com>
+## (C) Copyright 2016-2021 Fred Gleason <fredg@paravelsystems.com>
 ##
 ##   This program is free software; you can redistribute it and/or modify
 ##   it under the terms of the GNU General Public License version 2 as
@@ -27,20 +27,10 @@
 %.pdf:	%.xml
 	xsltproc $(DOCBOOK_STYLESHEETS)/fo/docbook.xsl $< | fop - -pdf $@
 
-all-local:	rivendell-install-rhel6.html\
-                rivendell-install-rhel7.html
+all-local:	index.html
 
-EXTRA_DIST = rhel6-create-user.png\
-             rhel6-edit-connections.png\
-             rhel6-enable-connection.png\
-             rhel6-enter-password.png\
-             rhel6-enter-root-password.png\
-             rhel6-minimal-desktop-mode.png\
-             rhel6-root-prompt.png\
-             rhel6-select-connection.png\
-             rhel6-start-su.png\
-             rhel6-start-terminal.png\
-             rhel6-start-update.png\
+EXTRA_DIST = index.html\
+             index.xml\
              rhel7-addnewmountpoint.png\
              rhel7-addnewmountpointefi.png\
              rhel7-bootscreen.png\
@@ -54,15 +44,12 @@ EXTRA_DIST = rhel6-create-user.png\
              rhel7-minimal-mode.png\
              rhel7-nmtui-edit-menu.png\
              rhel7-nmtui-editconnection-menu.png\
+             rhel7-installer_menu.png\
              rhel7-nmtui-invocation.png\
              rhel7-nmtui-mainscreen.png\
              rhel7-root-login.png\
              rhel7-setlanguage.png\
-             rhel7-set-root-password.png\
-             rivendell-install-rhel6.html\
-             rivendell-install-rhel6.xml\
-             rivendell-install-rhel7.html\
-             rivendell-install-rhel7.xml
+             rhel7-set-root-password.png
 
 CLEANFILES = *~
 MAINTAINERCLEANFILES = *~\
