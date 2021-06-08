@@ -4,3 +4,6 @@
 2021-06-07 Fred Gleason <fredg@paravelsystems.com>
 	* Added 'repo/'.
 	* Fixed various issues in 'assets/installer_install_rivendell.sh'.
+2021-06-07 Fred Gleason <fredg@paravelsystems.com>
+	* Updated 'repo/sanity_check.sh' to check os-release(5) for correct
+	distro.
