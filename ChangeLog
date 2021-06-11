@@ -14,3 +14,5 @@
 	than 'Technical Note'.
 2021-06-11 Fred Gleason <fredg@paravelsystems.com>
 	* Added a beta warning to the top of the instructions.
+2021-06-11 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.1.1.
