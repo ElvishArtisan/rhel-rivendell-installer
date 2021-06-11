@@ -40,6 +40,9 @@ rpm:	dist
 	mv $(HOME)/rpmbuild/SRPMS/rhel-rivendell-installer-*.src.rpm $(top_srcdir)/
 	rm $(HOME)/rpmbuild/SOURCES/rhel-rivendell-installer-$(VERSION).tar.gz
 
+howto:	all
+	rsync -rptgoDv --delete docs/*.html docs/*.png software.paravelsystems.com::howtos/7rd4/
+
 web:	dist
 	mkdir -p $(HOME)/rpmbuild/SOURCES
 	cp rhel-rivendell-installer-$(VERSION).tar.gz $(HOME)/rpmbuild/SOURCES/
