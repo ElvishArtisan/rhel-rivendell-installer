@@ -41,7 +41,7 @@ rpm:	dist
 	rm $(HOME)/rpmbuild/SOURCES/rhel-rivendell-installer-$(VERSION).tar.gz
 
 howto:	all
-	rsync -rptgoDv --delete docs/*.html docs/*.png software.paravelsystems.com::howtos/7rd4/
+	rsync -rptgoDv --delete docs/*.html docs/*.png software.paravelsystems.com::howtos/CentOS/7rd4/
 
 EXTRA_DIST = autogen.sh\
              get_distro.pl\

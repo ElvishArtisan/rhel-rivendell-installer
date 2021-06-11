@@ -20,3 +20,6 @@
 	* Added a 'make howto' target to post instructions.
 2021-06-11 Fred Gleason <fredg@paravelsystems.com>
 	* Removed the 'make web' target.
+2021-06-11 Fred Gleason <fredg@paravelsystems.com>
+	* Moved the location of the online instructions from in the
+	'make howto' target from 'howtos/7rd4/' to 'howtos/CentOS/7rd4/'.
