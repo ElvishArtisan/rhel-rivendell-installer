@@ -16,7 +16,7 @@
   <sect2>
     <title>Overview</title>
     <para>
-      This technical note contains procedures for installing the
+      This HOWTO contains procedures for installing the
       Rivendell Radio Automation System on a system running CentOS-7.
       While the screenshots are specific to CentOS-7, these instructions
       are also applicable to other RedHat Enterprise 7 (RHEL-7) -based
@@ -64,10 +64,10 @@
       <listitem>
 	<para>
 	  Target hardware. 64 bit (x86_64) AMD or Intel architecture
-	  is supported. For the purposes of this Note, the target machine
+	  is supported. For the purposes of this HOWTO, the target machine
 	  will be assumed to have a single, blank hard drive. Installations
 	  utilizing multiple hard drives (including RAID arrays) are
-	  possible, but beyond the scope of this Note.
+	  possible, but beyond the scope of this HOWTO.
 	</para>
       </listitem>
       <listitem>
