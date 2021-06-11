@@ -12,3 +12,5 @@
 2021-06-11 Fred Gleason <fredg@paravelsystems.com>
 	* Updated the language of the instructions to use 'HOWTO' rather
 	than 'Technical Note'.
+2021-06-11 Fred Gleason <fredg@paravelsystems.com>
+	* Added a beta warning to the top of the instructions.
