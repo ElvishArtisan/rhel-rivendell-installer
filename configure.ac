@@ -54,7 +54,6 @@ AC_CONFIG_FILES([ \
     assets/Makefile \
     docs/Makefile \
     rhel-rivendell-installer.spec \
-    rhel-rivendell-installer-web.spec \
     Makefile ])
 AC_OUTPUT()
 

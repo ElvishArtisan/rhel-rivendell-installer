@@ -18,3 +18,5 @@
 	* Incremented the package version to 0.1.1.
 2021-06-11 Fred Gleason <fredg@paravelsystems.com>
 	* Added a 'make howto' target to post instructions.
+2021-06-11 Fred Gleason <fredg@paravelsystems.com>
+	* Removed the 'make web' target.
