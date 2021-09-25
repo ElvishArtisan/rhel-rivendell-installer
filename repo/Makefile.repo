@@ -1,4 +1,4 @@
-# Makefile for the Paravel 7rd4 repo.
+# Makefile for the Paravel 8rd4 repo.
 
 #SHELL := /bin/bash
 
@@ -6,12 +6,12 @@
 
 
 sign:	clean sane
-	rpm --resign CentOS/*.rpm
+	rpm --resign Packages/*.rpm
 	createrepo .
 
 
 post:	sane
-	rsync -rptgoDv --copy-links --delete --exclude Makefile --exclude sanity_check.sh . software.paravelsystems.com::redhat_7/7rd4/
+	rsync -rptgoDv --copy-links --delete --exclude Makefile --exclude sanity_check.sh . software.paravelsystems.com::redhat_8/8rd4/
 
 sane:	
 	./sanity_check.sh  
