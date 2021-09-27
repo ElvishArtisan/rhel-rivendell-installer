@@ -2,13 +2,14 @@
 
 # installer_install_rivendell.sh
 #
-# Install Rivendell 4.x on a CentOS 7 system
+# Install Rivendell 4.x on an RHEL 8 system
 #
 
 #
 # Site Defines
 #
 REPO_HOSTNAME="software.paravelsystems.com"
+USER_NAME="rd"
 
 #
 # Get Target Mode
@@ -40,26 +41,19 @@ fi
 #
 # Configure Repos
 #
-yum -y install epel-release
-wget http://$REPO_HOSTNAME/CentOS/7com/Paravel-Commercial.repo -P /etc/yum.repos.d/
-
-#
-# Install XFCE4
-#
-yum -y groupinstall "X window system"
-yum -y groupinstall xfce
-systemctl set-default graphical.target
+dnf -y install epel-release
+wget https://$REPO_HOSTNAME/rhel/8com/Paravel-Commercial.repo -P /etc/yum.repos.d/
 
 #
 # Install Dependencies
 #
-yum -y install patch evince telnet lwmon nc samba paravelview ntp emacs twolame libmad nfs-utils cifs-utils samba-client ssvnc xfce4-screenshooter net-tools alsa-utils cups tigervnc-server-minimal pygtk2 cups system-config-printer gedit ntfs-3g ntfsprogs autofs
+dnf -y install patch evince telnet lwmon nc samba paravelview ntpstat emacs twolame-libs libmad nfs-utils cifs-utils samba-client net-tools alsa-utils cups tigervnc-server-minimal pygtk2 cups gedit ntfs-3g ntfsprogs autofs
 
 if test $MODE = "server" ; then
     #
     # Install MariaDB
     #
-    yum -y install mariadb-server
+    dnf -y install mariadb-server
     systemctl start mariadb
     systemctl enable mariadb
     mkdir -p /etc/systemd/system/mariadb.service.d/
@@ -83,11 +77,11 @@ if test $MODE = "server" ; then
     # Enable NFS Access for all remote hosts
     #
     echo "/var/snd *(rw,no_root_squash)" >> /etc/exports
-    echo "/home/rd/rd_xfer *(rw,no_root_squash)" >> /etc/exports
-    echo "/home/rd/music_export *(rw,no_root_squash)" >> /etc/exports
-    echo "/home/rd/music_import *(rw,no_root_squash)" >> /etc/exports
-    echo "/home/rd/traffic_export *(rw,no_root_squash)" >> /etc/exports
-    echo "/home/rd/traffic_import *(rw,no_root_squash)" >> /etc/exports
+    echo "/home/$USER_NAME/rd_xfer *(rw,no_root_squash)" >> /etc/exports
+    echo "/home/$USER_NAME/music_export *(rw,no_root_squash)" >> /etc/exports
+    echo "/home/$USER_NAME/music_import *(rw,no_root_squash)" >> /etc/exports
+    echo "/home/$USER_NAME/traffic_export *(rw,no_root_squash)" >> /etc/exports
+    echo "/home/$USER_NAME/traffic_import *(rw,no_root_squash)" >> /etc/exports
     systemctl enable rpcbind
     systemctl enable nfs-server
 
@@ -102,7 +96,7 @@ if test $MODE = "standalone" ; then
     #
     # Install MariaDB
     #
-    yum -y install mariadb-server
+    dnf -y install mariadb-server
     systemctl start mariadb
     systemctl enable mariadb
     mkdir -p /etc/systemd/system/mariadb.service.d/
@@ -127,11 +121,9 @@ fi
 # Install Rivendell
 #
 patch -p0 /etc/rsyslog.conf /usr/share/rhel-rivendell-installer/rsyslog.conf.patch
+mv /etc/selinux/config /etc/selinux/config-original
 cp -f /usr/share/rhel-rivendell-installer/selinux.config /etc/selinux/config
 systemctl disable firewalld
-yum -y remove chrony openbox
-systemctl start ntpd
-systemctl enable ntpd
 rm -f /etc/asound.conf
 cp /usr/share/rhel-rivendell-installer/asihpi.conf /etc/modprobe.d/
 cp /usr/share/rhel-rivendell-installer/asound.conf /etc/
@@ -146,18 +138,20 @@ cp /usr/share/rhel-rivendell-installer/no_screen_blank.conf /etc/X11/xorg.conf.d
 mkdir -p /etc/skel/Desktop
 cp /usr/share/rhel-rivendell-installer/skel/paravel_support.pdf /etc/skel/Desktop/First\ Steps.pdf
 ln -s /usr/share/rivendell/opsguide.pdf /etc/skel/Desktop/Operations\ Guide.pdf
-tar -C /etc/skel -zxf /usr/share/rhel-rivendell-installer/xfce-config.tgz
-adduser -c Rivendell\ Audio --groups audio,wheel rd
-chown -R rd:rd /home/rd
-chmod 0755 /home/rd
-patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
-yum -y remove alsa-firmware alsa-firmware-tools
-yum -y install lame rivendell rivendell-opsguide
+# FIXME: Add to existing accounts too!
+
+#tar -C /etc/skel -zxf /usr/share/rhel-rivendell-installer/xfce-config.tgz
+#adduser -c Rivendell\ Audio --groups audio,wheel $USER_NAME
+#chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
+#chmod 0755 /home/$USER_NAME
+#patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
+dnf -y install lame-libs rivendell rivendell-opsguide
 
 if test $MODE = "server" ; then
     #
     # Initialize Automounter
     #
+    cp /etc/auto.misc /etc/auto.misc-original
     cp -f /usr/share/rhel-rivendell-installer/auto.misc.template /etc/auto.misc
     systemctl enable autofs
 
@@ -170,20 +164,20 @@ if test $MODE = "server" ; then
     #
     # Create common directories
     #
-    mkdir -p /home/rd/rd_xfer
-    chown rd:rd /home/rd/rd_xfer
+    mkdir -p /home/$USER_NAME/rd_xfer
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/rd_xfer
 
-    mkdir -p /home/rd/music_export
-    chown rd:rd /home/rd/music_export
+    mkdir -p /home/$USER_NAME/music_export
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/music_export
 
-    mkdir -p /home/rd/music_import
-    chown rd:rd /home/rd/music_import
+    mkdir -p /home/$USER_NAME/music_import
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/music_import
 
-    mkdir -p /home/rd/traffic_export
-    chown rd:rd /home/rd/traffic_export
+    mkdir -p /home/$USER_NAME/traffic_export
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/traffic_export
 
-    mkdir -p /home/rd/traffic_import
-    chown rd:rd /home/rd/traffic_import
+    mkdir -p /home/$USER_NAME/traffic_import
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/traffic_import
 fi
 
 if test $MODE = "standalone" ; then
@@ -202,20 +196,20 @@ if test $MODE = "standalone" ; then
     #
     # Create common directories
     #
-    mkdir -p /home/rd/rd_xfer
-    chown rd:rd /home/rd/rd_xfer
+    mkdir -p /home/$USER_NAME/rd_xfer
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/rd_xfer
 
-    mkdir -p /home/rd/music_export
-    chown rd:rd /home/rd/music_export
+    mkdir -p /home/$USER_NAME/music_export
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/music_export
 
-    mkdir -p /home/rd/music_import
-    chown rd:rd /home/rd/music_import
+    mkdir -p /home/$USER_NAME/music_import
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/music_import
 
-    mkdir -p /home/rd/traffic_export
-    chown rd:rd /home/rd/traffic_export
+    mkdir -p /home/$USER_NAME/traffic_export
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/traffic_export
 
-    mkdir -p /home/rd/traffic_import
-    chown rd:rd /home/rd/traffic_import
+    mkdir -p /home/$USER_NAME/traffic_import
+    chown $USER_NAME:$USER_NAME /home/$USER_NAME/traffic_import
 fi
 
 if test $MODE = "client" ; then
@@ -225,16 +219,16 @@ if test $MODE = "client" ; then
     rm -f /etc/auto.rd.audiostore
     cat /usr/share/rhel-rivendell-installer/auto.rd.audiostore.template | sed s/@IP_ADDRESS@/$IP_ADDR/g > /etc/auto.rd.audiostore
 
-    rm -f /home/rd/rd_xfer
-    ln -s /misc/rd_xfer /home/rd/rd_xfer
-    rm -f /home/rd/music_export
-    ln -s /misc/music_export /home/rd/music_export
-    rm -f /home/rd/music_import
-    ln -s /misc/music_import /home/rd/music_import
-    rm -f /home/rd/traffic_export
-    ln -s /misc/traffic_export /home/rd/traffic_export
-    rm -f /home/rd/traffic_import
-    ln -s /misc/traffic_import /home/rd/traffic_import
+    rm -f /home/$USER_NAME/rd_xfer
+    ln -s /misc/rd_xfer /home/$USER_NAME/rd_xfer
+    rm -f /home/$USER_NAME/music_export
+    ln -s /misc/music_export /home/$USER_NAME/music_export
+    rm -f /home/$USER_NAME/music_import
+    ln -s /misc/music_import /home/$USER_NAME/music_import
+    rm -f /home/$USER_NAME/traffic_export
+    ln -s /misc/traffic_export /home/$USER_NAME/traffic_export
+    rm -f /home/$USER_NAME/traffic_import
+    ln -s /misc/traffic_import /home/$USER_NAME/traffic_import
     rm -f /etc/auto.misc
     cat /usr/share/rhel-rivendell-installer/auto.misc.client_template | sed s/@IP_ADDRESS@/$IP_ADDR/g > /etc/auto.misc
     systemctl enable autofs

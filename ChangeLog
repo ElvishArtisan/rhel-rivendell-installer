@@ -26,3 +26,5 @@
 2021-09-25 Fred Gleason <fredg@paravelsystems.com>
 	* Forked branch 'rhel_8' from 'rhel_7'.
 	* Modified 'repo/' for RHEL 8.
+2021-09-27 Fred Gleason <fredg@paravelsystems.com>
+	* Modified 'repo/' for RHEL 8.

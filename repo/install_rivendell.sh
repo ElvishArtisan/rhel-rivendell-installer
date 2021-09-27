@@ -44,10 +44,10 @@ function CheckNetwork {
 
 function AddRepos {
     echo "Adding repo..."
-    wget http://software.paravelsystems.com/rhel/8rd4/RPM-GPG-KEY-Paravel-Broadcast -P /etc/pki/rpm-gpg/
-    wget http://software.paravelsystems.com/rhel/8rd4/Paravel-Rivendell4.repo -P /etc/yum.repos.d/
-    yum -y clean expire-cache
-    yum -y install rhel-rivendell-installer
+    wget https://software.paravelsystems.com/rhel/8rd4/RPM-GPG-KEY-Paravel-Broadcast -P /etc/pki/rpm-gpg/
+    wget https://software.paravelsystems.com/rhel/8rd4/Paravel-Rivendell4.repo -P /etc/yum.repos.d/
+    dnf -y clean expire-cache
+    dnf -y install rhel-rivendell-installer
 }
 
 
@@ -55,7 +55,7 @@ function InstallStandalone {
     CheckNetwork
     AddRepos
     /usr/share/rhel-rivendell-installer/installer_install_rivendell.sh --standalone
-#    yum -y remove rhel-rivendell-installer
+#    dnf -y remove rhel-rivendell-installer
     exit 0
 }
 
@@ -64,18 +64,18 @@ function InstallServer {
     CheckNetwork
     AddRepos
     /usr/share/rhel-rivendell-installer/installer_install_rivendell.sh --server
-#    yum -y remove rhel-rivendell-installer
+#    dnf -y remove rhel-rivendell-installer
     exit 0
 }
 
 
 function InstallClient {
-    CheckNetwork
     echo -n "Enter IP address of Rivendell server: "
     read RD_SERVER
+    CheckNetwork
     AddRepos
     /usr/share/rhel-rivendell-installer/installer_install_rivendell.sh --client $RD_SERVER
-#    yum -y remove rhel-rivendell-installer
+#    dnf -y remove rhel-rivendell-installer
     exit 0
 }
 
@@ -108,6 +108,7 @@ echo
 if [ -z $RESP ] || [ $RESP == "4" ] ; then
     exit 0
 fi
+
 if [ $RESP == "1" ] ; then
     InstallStandalone
 fi
