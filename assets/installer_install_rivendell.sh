@@ -41,7 +41,7 @@ fi
 #
 # Configure Repos
 #
-dnf -y install epel-release
+dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 wget https://$REPO_HOSTNAME/rhel/8com/Paravel-Commercial.repo -P /etc/yum.repos.d/
 
 #
