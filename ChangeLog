@@ -35,3 +35,6 @@
 	installation of EPEL to fail on RHEL 8.
 2021-10-10 Fred Gleason <fredg@paravelsystems.com>
 	* Rewrote the HOWTO on the basis of RHEL 8.
+2021-10-10 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed a typo in 'docs/index.xml' that specified use of yum(8)
+	rather than dnf(8).
