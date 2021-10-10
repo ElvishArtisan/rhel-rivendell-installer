@@ -1,9 +1,9 @@
---- custom.conf-orig	2016-06-27 12:06:44.777183125 -0400
-+++ custom.conf	2016-06-27 12:07:25.751994004 -0400
-@@ -1,6 +1,8 @@
- # GDM configuration storage
- 
+--- custom.conf.orig	2021-10-10 17:26:28.523776189 -0400
++++ custom.conf	2021-10-10 17:29:44.442375973 -0400
+@@ -3,6 +3,8 @@
  [daemon]
+ # Uncoment the line below to force the login screen to use Xorg
+ #WaylandEnable=false
 +AutomaticLogin=rd
 +AutomaticLoginEnable=true
  

@@ -43,3 +43,5 @@
 	'assets/asound.conf'.
 2021-10-10 Fred Gleason <fredg@paravelsystems.com>
 	* Enabled autologin.
+2021-10-10 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed a typo in 'assets/autologin.patch'.
