@@ -41,3 +41,5 @@
 2021-10-10 Fred Gleason <fredg@paravelsystems.com>
 	* Added a 'rate 48000' statement to the 'pcm.rd0' stanza in
 	'assets/asound.conf'.
+2021-10-10 Fred Gleason <fredg@paravelsystems.com>
+	* Enabled autologin.
