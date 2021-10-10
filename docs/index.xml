@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
 <info>
-  <title>Installing Rivendell 4 on a CentOS-7 System</title>
+  <title>Installing Rivendell 4 on a RHEL-8 System</title>
   <author>
     <personname>
       <firstname>Fred</firstname>
@@ -27,25 +27,13 @@
     <title>Overview</title>
     <para>
       This HOWTO contains procedures for installing the
-      Rivendell Radio Automation System on a system running CentOS-7.
-      While the screenshots are specific to CentOS-7, these instructions
-      are also applicable to other RedHat Enterprise 7 (RHEL-7) -based
-      distributions. Such distributions include:
+      Rivendell Radio Automation System on a system running RHEL-8.
+      While the screenshots are specific to RHEL-8, these instructions
+      are also applicable to other RedHat Enterprise 8 (RHEL-8) -based
+      distributions.
     </para>
-    <itemizedlist>
-      <listitem>
-	<para>
-	  RedHat Enterprise Linux 7.x
-	</para>
-      </listitem>
-      <listitem>
-	<para>
-	  Scientific Linux 7.x
-	</para>
-      </listitem>
-    </itemizedlist>
     <para>
-      Installing Rivendell on CentOS-7 consists of three primary steps:
+      Installing Rivendell on RHEL-8 consists of three primary steps:
     </para>
     <orderedlist>
       <listitem>
@@ -82,10 +70,10 @@
       </listitem>
       <listitem>
 	<para>
-	  A 'Minimal ISO' installer image for CentOS-7, available at
-	  <link xlink:href="http://centos.org/download">
-	    http://centos.org/download</link>. After downloading the
-	    ISO image, burn it to a blank DVD or make a "bootable" USB
+	  A 'DVD' ISO installer image for RHEL-8, available at
+	  <link xlink:href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">
+	    https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux</link>.
+	    After downloading the ISO image, make a "bootable" USB
 	    key using
 	    <link xlink:href="https://wiki.centos.org/HowTos/InstallFromUSBkey">
 	      these instructions</link>.
@@ -103,18 +91,18 @@
 <sect1>
   <title>Installing the Base Distribution</title>
   <para>
-    Boot the CentOS-7 installation media (DVD or USB key). You should wind
+    Boot the RHEL-8 installation media (DVD or USB key). You should wind
     up at the initial boot screen.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-bootscreen.png" scale="90"/>
+	<imagedata fileref="rhel8-bootscreen.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    Highlight the <computeroutput>Install CentOS Linux 7</computeroutput>
+    Highlight the <computeroutput>Install Red Hat Enterprise Linux 8</computeroutput>
     prompt and then press <userinput>Enter</userinput> to start the
     installation.
   </para>
@@ -126,7 +114,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-setlanguage.png" scale="90"/>
+	<imagedata fileref="rhel8-setlanguage.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -137,7 +125,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-installationsummary.png" scale="90"/>
+	<imagedata fileref="rhel8-installationsummary.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -150,10 +138,15 @@
     <computeroutput>Automatically configure partitioning</computeroutput> to
     <computeroutput>I will configure partitioning.</computeroutput>.
   </para>
+  <warning>
+    Do <emphasis>NOT</emphasis> use automatic partitioning! Doing so will
+    waste large amounts of disc space while resulting in an installation
+    with very little space available for storage of audio!
+  </warning>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-installationdestination.png" scale="90"/>
+	<imagedata fileref="rhel8-installationdestination.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -164,7 +157,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-manualpartitioning.png" scale="90"/>
+	<imagedata fileref="rhel8-manualpartitioning.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -177,7 +170,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-manualpartitioning_standard.png" scale="90"/>
+	<imagedata fileref="rhel8-manualpartitioning_standard.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -188,7 +181,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-addnewmountpoint.png" scale="50"/>
+	<imagedata fileref="rhel8-addnewmountpoint.png" scale="50"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -202,7 +195,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-addnewmountpointefi.png" scale="50"/>
+	<imagedata fileref="rhel8-addnewmountpointefi.png" scale="50"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -238,130 +231,275 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-installationsummarydone.png" scale="90"/>
+	<imagedata fileref="rhel8-installationsummary1.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    Touch the <computeroutput>Begin Installation</computeroutput> button
-    to apply your partitioning settings and install CentOS.
+    Touch the <computeroutput>Root Password</computeroutput> item to bring
+    up the <computeroutput>ROOT PASSWORD</computeroutput> screen.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-installing-set-root-password.png" scale="90"/>
+	<imagedata fileref="rhel8-installationsummary2.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    While the system is installing, touch the
-    <computeroutput>ROOT PASSWORD</computeroutput> entry and set the
-    administrative (root) password.
+    Enter a password in the two fields. and then touch the
+    <computeroutput>Done</computeroutput> button to return to the
+    <computeroutput>SUMMARY OF CHANGES</computeroutput> screen.
     <warning>
       DO NOT FORGET WHAT YOU ENTER HERE, AS
       YOU WILL NEED IT TO MANAGE YOUR RIVENDELL SYSTEM!
     </warning>
   </para>
   <para>
+    Touch the <computeroutput>User Creation</computeroutput> item to bring
+    up the <computeroutput>CREATE USER</computeroutput> screen.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-createuser.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Create a user called <userinput>rd</userinput>, using the settings as
+    shown, and then touch the <computeroutput>Done</computeroutput> button
+    to return to the <computeroutput>INSTALLATION SUMMARY</computeroutput>
+    screen.
+  </para>
+  <caution>
+    To ensure system security, use a password that is different from
+    the one used for the <computeroutput>root</computeroutput>.
+  </caution>
+  <para>
+    Touch the <computeroutput>Begin Installation</computeroutput> button
+    to apply your partitioning settings and install RHEL.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-installationprogress.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
     When installation is complete, touch the
-    <computeroutput>Reboot</computeroutput> button.
+    <computeroutput>Reboot System</computeroutput> button.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-installationcomplete.png" scale="90"/>
+	<imagedata fileref="rhel8-installationcomplete.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    The system will reboot and come up to the login screen. Login
-    in as user &quot;root&quot;, using the root password that you set
-    earlier.
+    The system will reboot and come up to the
+    <computeroutput>INITIAL SETUP</computeroutput> screen.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-root-login.png" scale="90"/>
+	<imagedata fileref="rhel8-initialsetup.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    Then run the command:
-  </para>
-  <para>
-     <userinput>nmtui</userinput>
+    Touch the <computeroutput>License Information</computeroutput> button
+    to bring up the <computeroutput>License Information</computeroutput>
+    screen.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-nmtui-invocation.png" scale="90"/>
+	<imagedata fileref="rhel8-licenseinformation.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    This will start up the NetworkManager utility.
+    Tick the <computeroutput>I accept the license agreement</computeroutput>
+    checkbox and then touch the <computeroutput>Done</computeroutput>
+    button to return to the <computeroutput>INITIAL SETUP</computeroutput>
+    screen.
+  </para>
+  <!--
+      Add Subscription Manager description here!
+  -->
+  <para>
+    Touch the <computeroutput>FINISH CONFIGURATION</computeroutput> button.
+    Then Login screen will then appear.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-nmtui-mainscreen.png" scale="90"/>
+	<imagedata fileref="rhel8-loginscreen.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    To autoconfigure a connection via DHCP and bring it up, use the arrow keys
-    to select the <computeroutput>Edit a connection</computeroutput>
-    menu item and then press <userinput>ENTER</userinput>.
+    Click the <computeroutput>Rivendell Audio</computeroutput> item and
+    enter the user password that was set earlier.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-nmtui-edit-menu.png" scale="90"/>
+	<imagedata fileref="rhel8-passwordscreen.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    Using the arrow keys and the spacebar, select the desired network
-    interface on the left, then press <userinput>ENTER</userinput> to
-    open the <computeroutput>Edit Connection</computeroutput> screen.
+    The system will log in
+    and display the <computeroutput>Welcome!</computeroutput> screen.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-nmtui-editconnection-menu.png" scale="90"/>
+	<imagedata fileref="rhel8-welcome.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    Use the <userinput>Down Arrow</userinput> key to move the red cursor to the
-    <computeroutput>Automatically connect</computeroutput> box,
-    press the <userinput>Spacebar</userinput> to put an 'X' in the box and
-    then continue pressing
-    the <userinput>Down Arrow</userinput> key until the
-    <computeroutput>&lt;OK&gt;</computeroutput>
-    button is highlighted. Press <userinput>Enter</userinput> to exit the
-    screen. Select the <computeroutput>&lt;Back&gt;</computeroutput> button
-    and press <userinput>Enter</userinput> again. Finally, select
-    <computeroutput>Quit</computeroutput> on the main menu and press
-    <userinput>Enter</userinput> to exit the utility.
+    Choose the desired language and then touch the
+    <computeroutput>Next</computeroutput> button to bring up the
+    <computeroutput>Typing</computeroutput> screen.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-typing.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Choose the desired keyboard layout and then touch the
+    <computeroutput>Next</computeroutput> button to bring up the
+    <computeroutput>Privacy</computeroutput> screen.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-privacy.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Set the <computeroutput>Location Services</computeroutput> as desired
+    then touch the <computeroutput>Next</computeroutput> button to bring
+    up the <computeroutput>Connect Your Online Accounts</computeroutput>
+    screen. Touch the <computeroutput>Skip</computeroutput> button to
+    bring up the <computeroutput>Ready to Go</computeroutput> screen.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-readytogo.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Touch the
+    <computeroutput>Start Using Red Hat Enterprise Linux</computeroutput>
+    button to bring up the <computeroutput>Getting Started</computeroutput>
+    window.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-gettingstarted.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Touch the 'X' in the upper right-hand corner to dismiss the
+    window and show the Gnome Desktop.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-gnomedesktop.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Touch the Down Arrow in the upper right-hand corner of the desktop and
+    then touch the &quot;Tool&quot; icon to open the
+    <computeroutput>Settings</computeroutput> applet.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-settings.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Touch the <computeroutput>Network</computeroutput> item in the left-hand
+    pane and configure network access as is appropriate for your site.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-network.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Next, touch the <computeroutput>Details</computeroutput> item in the
+    left-hand pane and set the host name of the machine in the
+    <computeroutput>Device Name</computeroutput> field. The host name
+    should be all lower-case, alphanumeric and not more than 32 characters.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-details-about.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
   </para>
 
   <para>
-    Now, set the hostname of system with the command:
+    Next, open a <computeroutput>Terminal</computeroutput> by touching the
+    &quot;Activities&quot; item in the upper left-hand corner of the desktop
+    and then the <computeroutput>Terminal</computeroutput> icon.
   </para>
   <para>
-    <userinput>hostnamectl set-hostname <replaceable>hostname</replaceable></userinput>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-startterminal.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
   </para>
   <para>
-    <userinput><replaceable>hostname</replaceable></userinput> should be
-    all lower-case, alphanumeric and not more than 32 characters.
+    Enter the following into the terminal to
+    elevate its privileges to <userinput>root</userinput>:
   </para>
   <para>
-    Once Internet access is functioning, update the entire installation with
-    the command:
+    <userinput>su -</userinput>
   </para>
   <para>
-    <userinput>yum -y update</userinput>
+    You will be prompted for the user &quot;rd&quot; password. Type it,
+    and then press the <userinput>Enter</userinput> key.
+  </para>
+  <note>
+    The password will not appear on the screen as you type it. This is normal.
+  </note>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-superuser.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Next, update the entire installation by entering the command:
+  </para>
+  <para>
+    <userinput>dnf -y update</userinput>
   </para>
   <para>
     Reboot when the update is complete with the command:
@@ -377,15 +515,13 @@
 <sect1>
   <title>Running the Installation Script</title>
   <para>
-    Log back in as user <userinput>root</userinput> and run the following
-    commands:
-  </para>
-  <para>
-    <userinput>yum -y install wget</userinput>
+    After the reboot is complete, log back into the desktop, open
+    <computeroutput>Terminal</computeroutput> elevate its privileges as
+    explained above. Then, enter the following commands:
   </para>
   <para>
     <userinput>wget
-    http://software.paravelsystems.com/CentOS/7rd4/install_rivendell.sh -P .</userinput>
+    https://software.paravelsystems.com/rhel/8rd4/install_rivendell.sh -P .</userinput>
   </para>
   <para>
     <userinput> chmod 755 install_rivendell.sh</userinput>
@@ -399,7 +535,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel7-installer_menu.png" scale="90"/>
+	<imagedata fileref="rhel8-installer_menu.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>

@@ -31,25 +31,33 @@ all-local:	index.html
 
 EXTRA_DIST = index.html\
              index.xml\
-             rhel7-addnewmountpoint.png\
-             rhel7-addnewmountpointefi.png\
-             rhel7-bootscreen.png\
-             rhel7-installationcomplete.png\
-             rhel7-installationdestination.png\
-             rhel7-installationsummary.png\
-             rhel7-installationsummarydone.png\
-             rhel7-installing-set-root-password.png\
-             rhel7-manualpartitioning.png\
-             rhel7-manualpartitioning_standard.png\
-             rhel7-minimal-mode.png\
-             rhel7-nmtui-edit-menu.png\
-             rhel7-nmtui-editconnection-menu.png\
-             rhel7-installer_menu.png\
-             rhel7-nmtui-invocation.png\
-             rhel7-nmtui-mainscreen.png\
-             rhel7-root-login.png\
-             rhel7-setlanguage.png\
-             rhel7-set-root-password.png
+             rhel8-addnewmountpoint.png\
+             rhel8-addnewmountpointefi.png\
+             rhel8-bootscreen.png\
+             rhel8-createuser.png\
+             rhel8-details-about.png\
+             rhel8-gettingstarted.png\
+             rhel8-gnomedesktop.png\
+             rhel8-initialsetup.png\
+             rhel8-installationcomplete.png\
+             rhel8-installationdestination.png\
+             rhel8-installationprogress.png\
+             rhel8-installationsummary.png\
+             rhel8-installationsummary1.png\
+             rhel8-installationsummary2.png\
+             rhel8-licenseinformation.png\
+             rhel8-loginscreen.png\
+             rhel8-manualpartitioning.png\
+             rhel8-manualpartitioning_standard.png\
+             rhel8-network.png\
+             rhel8-passwordscreen.png\
+             rhel8-readytogo.png\
+             rhel8-setlanguage.png\
+             rhel8-settings.png\
+             rhel8-startterminal.png\
+             rhel8-superuser.png\
+             rhel8-typing.png\
+             rhel8-welcome.png
 
 CLEANFILES = *~
 MAINTAINERCLEANFILES = *~\

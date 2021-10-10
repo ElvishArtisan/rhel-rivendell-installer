@@ -33,3 +33,5 @@
 2021-10-10 Fred Gleason <fredg@paravelsystems.com>
 	* Fixed a bug in 'assets/installer_install_rivendell.sh' that caused
 	installation of EPEL to fail on RHEL 8.
+2021-10-10 Fred Gleason <fredg@paravelsystems.com>
+	* Rewrote the HOWTO on the basis of RHEL 8.
