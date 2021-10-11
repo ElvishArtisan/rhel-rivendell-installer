@@ -125,24 +125,32 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-installationsummary.png" scale="90"/>
+	<imagedata fileref="rhel8-installationsummary.png"  scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
+    Touch the <computeroutput>Software Selection</computeroutput> item
+    to bring up the <computeroutput>SOFTWARE SELECTION</computeroutput> screen.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-softwareselection.png"  scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    In the left-hand pane, select the
+    <computeroutput>Workstation</computeroutput> environment, then touch
+    the <computeroutput>Done</computeroutput> button to return to the
+    <computeroutput>INSTALLATION SUMMARY</computeroutput> screen.
+  </para>  
+  <para>
     Touch the <computeroutput>INSTALLATION DESTINATION</computeroutput>
     item to bring up the 
     <computeroutput>INSTALLATION DESTINATION</computeroutput> screen.
-    In the <computeroutput>Other Storage Options</computeroutput> section,
-    change the <computeroutput>Partitioning</computeroutput> selection from
-    <computeroutput>Automatically configure partitioning</computeroutput> to
-    <computeroutput>I will configure partitioning.</computeroutput>.
   </para>
-  <warning>
-    Do <emphasis>NOT</emphasis> use automatic partitioning! Doing so will
-    waste large amounts of disc space while resulting in an installation
-    with very little space available for storage of audio!
-  </warning>
   <para>
     <mediaobject>
       <imageobject>
@@ -150,6 +158,16 @@
       </imageobject>
     </mediaobject>
   </para>
+  <para>
+    In the <computeroutput>Storage Configuration</computeroutput> section,
+    change the selection from <computeroutput>Automatic</computeroutput> to
+    <computeroutput>Custom</computeroutput>.
+  </para>
+  <warning>
+    Do <emphasis>NOT</emphasis> use automatic partitioning! Doing so will
+    waste large amounts of disc space while resulting in an installation
+    with very little space available for storage of audio!
+  </warning>
   <para>
     Touch the <computeroutput>Done</computeroutput> button to bring up the
     <computeroutput>MANUAL PARTITIONING</computeroutput> screen.
@@ -310,7 +328,7 @@
     </mediaobject>
   </para>
   <para>
-    Touch the <computeroutput>License Information</computeroutput> button
+    Touch the <computeroutput>License Information</computeroutput> item
     to bring up the <computeroutput>License Information</computeroutput>
     screen.
   </para>
@@ -327,9 +345,13 @@
     button to return to the <computeroutput>INITIAL SETUP</computeroutput>
     screen.
   </para>
-  <!--
-      Add Subscription Manager description here!
-  -->
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-initialsetup2.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
   <para>
     Touch the <computeroutput>FINISH CONFIGURATION</computeroutput> button.
     Then Login screen will then appear.
@@ -450,9 +472,8 @@
   </para>
   <para>
     Next, touch the <computeroutput>Details</computeroutput> item in the
-    left-hand pane and set the host name of the machine in the
-    <computeroutput>Device Name</computeroutput> field. The host name
-    should be all lower-case, alphanumeric and not more than 32 characters.
+    left-hand pane to bring up the <computeroutput>About</computeroutput>
+    screen.
   </para>
   <para>
     <mediaobject>
@@ -461,9 +482,72 @@
       </imageobject>
     </mediaobject>
   </para>
-
   <para>
-    Next, open a <computeroutput>Terminal</computeroutput> by touching the
+    Touch the <computeroutput>Register</computeroutput> button to bring up
+    the <computeroutput>Register System</computeroutput> dialog.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-registersystem.png" scale="70"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Enter the <computeroutput>Login</computeroutput> and
+    <computeroutput>Password</computeroutput> for a Red Hat account
+    authorized to issue a subscription and then touch the
+    <computeroutput>Register</computeroutput> button. The system will
+    prompt for an &quot;Administrator&quot; password.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-administratorpassword.png" scale="70"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Enter the &quot;root&quot; password that you created earlier and
+    then touch the <computeroutput>Authenticate</computeroutput> button.
+    The system will return to the <computeroutput>About</computeroutput>
+    screen.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-details-about2.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Touch the <computeroutput>View Updates</computeroutput> button to
+    bring up a list of available updates.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-available_updates.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    Touch the
+    <computeroutput>Download</computeroutput> to download them. When download
+    is complete, touch the <computeroutput>Restart &amp; Update</computeroutput>
+    button to begin the update process.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-installingupdates.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+  <para>
+    After installing the updates, the system will reboot. Log back in as
+    user <userinput>rd</userinput>, then open a
+    <computeroutput>Terminal</computeroutput> by touching the
     &quot;Activities&quot; item in the upper left-hand corner of the desktop
     and then the <computeroutput>Terminal</computeroutput> icon.
   </para>
@@ -496,16 +580,17 @@
     </mediaobject>
   </para>
   <para>
-    Next, update the entire installation by entering the command:
+    Next, set the host name of the machine by entering the following:
+    <userinput>hostnamectl set-hostname <replaceable>hostname</replaceable></userinput>,
+    where <replaceable>hostname</replaceable> is the name. The name
+    should be all lower-case, alphanumeric and not more than 32 characters.
   </para>
   <para>
-    <userinput>dnf -y update</userinput>
-  </para>
-  <para>
-    Reboot when the update is complete with the command:
-  </para>
-  <para>
-    <userinput>reboot</userinput>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel8-sethostname.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
   </para>
   <para>
     The system is now ready to have Rivendell installed.
@@ -515,9 +600,7 @@
 <sect1>
   <title>Running the Installation Script</title>
   <para>
-    After the reboot is complete, log back into the desktop, open
-    <computeroutput>Terminal</computeroutput> elevate its privileges as
-    explained above. Then, enter the following commands:
+    Enter the following commands:
   </para>
   <para>
     <userinput>wget
@@ -642,45 +725,16 @@
   <para>
     After rebooting, the system will come back in GUI mode, automatically
     logged in as user <userinput>rd</userinput>.  To secure the system fully,
-    perform the following steps:
+    open and <computeroutput>Terminal</computeroutput> as directed above
+    and perform the following steps:
   </para>
   <orderedlist>
     <listitem>
       <para>
-	Open a shell by clicking on the
-	<computeroutput>Applications</computeroutput> button in the upper
-	right-hand corner of the desktop, selecting the
-	<computeroutput>System</computeroutput> menu and clicking on the
-	<computeroutput>Xfce Terminal</computeroutput> item.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-	Enter the following command to get <userinput>root</userinput>
-	permissions:
-      </para>
-      <para>
-	<userinput>su -</userinput>
-      </para>
-      <para>
-	You will be prompted for a password. Enter the root password and
-	then press <userinput>Enter</userinput>. The password will not
-	be echoed to the screen as you enter it.
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-	Set the password for the local <userinput>rd</userinput> account
-	with the following command:
-      </para>
-      <para>
-	<userinput>passwd rd</userinput>
-      </para>
-    </listitem>
-    <listitem>
-      <para>
-	Set the MariaDB administrator password with the following command
-	(substitute your password for <replaceable>pwd</replaceable>):
+	If you used the &quot;Standalone&quot; or &quot;Server&quot;
+	installation modes above, set the MariaDB administrator password
+	with the following command (substitute your password for
+	<replaceable>pwd</replaceable>):
       </para>
       <para>
 	<userinput>echo "SET PASSWORD FOR root@localhost = 
@@ -693,7 +747,7 @@
 	Remove the Rivendell installer script with the following command:
       </para>
       <para>
-	<userinput>yum -y remove rivendell-install</userinput>
+	<userinput>dnf -y remove rhel-rivendell-installer</userinput>
       </para>
     </listitem>
   </orderedlist>

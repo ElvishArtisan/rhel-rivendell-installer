@@ -31,14 +31,19 @@ all-local:	index.html
 
 EXTRA_DIST = index.html\
              index.xml\
+             rhel8-administratorpassword.png\
              rhel8-addnewmountpoint.png\
              rhel8-addnewmountpointefi.png\
+             rhel8-available_updates.png\
              rhel8-bootscreen.png\
              rhel8-createuser.png\
              rhel8-details-about.png\
+             rhel8-details-about2.png\
              rhel8-gettingstarted.png\
              rhel8-gnomedesktop.png\
              rhel8-initialsetup.png\
+             rhel8-initialsetup2.png\
+             rhel8-installingupdates.png\
              rhel8-installationcomplete.png\
              rhel8-installationdestination.png\
              rhel8-installationprogress.png\
@@ -51,9 +56,13 @@ EXTRA_DIST = index.html\
              rhel8-manualpartitioning_standard.png\
              rhel8-network.png\
              rhel8-passwordscreen.png\
+             rhel8-privacy.png\
              rhel8-readytogo.png\
+             rhel8-registersystem.png\
              rhel8-setlanguage.png\
+             rhel8-sethostname.png\
              rhel8-settings.png\
+             rhel8-softwareselection.png\
              rhel8-startterminal.png\
              rhel8-superuser.png\
              rhel8-typing.png\

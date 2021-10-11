@@ -35,3 +35,6 @@
 	installation of EPEL to fail on RHEL 8.
 2021-10-10 Fred Gleason <fredg@paravelsystems.com>
 	* Rewrote the HOWTO on the basis of RHEL 8.
+2021-10-10 Fred Gleason <fredg@paravelsystems.com>
+	* Added installation steps to the HOWTO regarding system
+	registration and updates.
