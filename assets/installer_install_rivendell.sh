@@ -138,6 +138,7 @@ cp /usr/share/rhel-rivendell-installer/no_screen_blank.conf /etc/X11/xorg.conf.d
 mkdir -p /etc/skel/Desktop
 cp /usr/share/rhel-rivendell-installer/skel/paravel_support.pdf /etc/skel/Desktop/First\ Steps.pdf
 ln -s /usr/share/rivendell/opsguide.pdf /etc/skel/Desktop/Operations\ Guide.pdf
+patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
 # FIXME: Add to existing accounts too!
 
 #tar -C /etc/skel -zxf /usr/share/rhel-rivendell-installer/xfce-config.tgz
