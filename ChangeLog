@@ -48,6 +48,9 @@
 2021-10-11 Fred Gleason <fredg@paravelsystems.com>
 	* Added installation steps to the HOWTO regarding system
 	registration and updates.
+	* Incremented the package version to 0.2.0rhel8.
 2021-10-11 Fred Gleason <fredg@paravelsystems.com>
+	* Modified 'repo/sanity_check.sh' to require actual RHEL.
+2021-10-12 Fred Gleason <fredg@paravelsystems.com>
 	* Added command to tag dependencies to
-	'repo/install_rivendell_Devel.sh'.
+	'repo/install_rivendell_devel.sh'.
