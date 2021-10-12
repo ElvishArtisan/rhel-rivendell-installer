@@ -22,6 +22,11 @@
 #
 
 #
+# Enable CodeReady Builder Repo
+#
+subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+
+#
 # Tag Dependencies
 #
 dnf mark install apr apr-util apr-util-bdb apr-util-openssl cdparanoia-libs hpklinux httpd httpd-filesystem httpd-tools id3lib jack-audio-connection-kit libcoverart libdiscid libffado libxml++ mod_http2 python3-mysql python3-pyserial qt5-qtbase-mysql qt5-qtstyleplugins redhat-logos-httpd

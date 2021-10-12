@@ -54,3 +54,6 @@
 2021-10-12 Fred Gleason <fredg@paravelsystems.com>
 	* Added command to tag dependencies to
 	'repo/install_rivendell_devel.sh'.
+2021-10-12 Fred Gleason <fredg@paravelsystems.com>
+	* Added command to enable the CodeReady Builder repo to
+	'repo/install_rivendell_devel.sh'.
