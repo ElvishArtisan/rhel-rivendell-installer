@@ -86,8 +86,8 @@ tar -C /usr/local/bin -zvxf /usr/share/rhel-rivendell-installer/fop-2.6-bin.tar.
 #
 # Configure Environment
 #
-echo "DOCBOOK_STYLESHEETS=/usr/share/sgml/docbook/xsl-ns-stylesheets" > /etc/profile.d/docbook5.sh
-echo "PATH=\$PATH:/usr/local/bin/fop-2.6/fop" >> /etc/profile.d/docbook5.sh
+echo "export DOCBOOK_STYLESHEETS=/usr/share/sgml/docbook/xsl-ns-stylesheets" > /etc/profile.d/docbook5.sh
+echo "export PATH=\$PATH:/usr/local/bin/fop-2.6/fop" >> /etc/profile.d/docbook5.sh
 
 #
 # Finish Up

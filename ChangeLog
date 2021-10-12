@@ -62,3 +62,6 @@
 	'repo/install_rivendell_devel.sh'.
 	* Added code to bootstrap fop(1) to 'repo/install_rivendell_devel.sh'.
 	* Updated the 'make clean' repo rule to remove leftover '.sig' files.
+2021-10-12 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed typos in 'repo/install_rivendell_devel.sh' that broke
+	installation of the Docbook5 stylesheets.
