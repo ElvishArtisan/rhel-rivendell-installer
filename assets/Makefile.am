@@ -26,6 +26,7 @@ EXTRA_DIST = asihpi.conf\
              auto.misc.client_template\
              auto.misc.template\
              auto.rd.audiostore.template\
+             fop-2.6-bin.tar.gz\
              installer_install_rivendell.sh\
              limits.conf\
              no_screen_blank.conf\

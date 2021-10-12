@@ -18,4 +18,4 @@ sane:
 
 clean:
 	rm -rf repodata
-
+	rm -f Packages/*.sig

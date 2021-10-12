@@ -57,3 +57,8 @@
 2021-10-12 Fred Gleason <fredg@paravelsystems.com>
 	* Added command to enable the CodeReady Builder repo to
 	'repo/install_rivendell_devel.sh'.
+2021-10-12 Fred Gleason <fredg@paravelsystems.com>
+	* Updated the package installation list in
+	'repo/install_rivendell_devel.sh'.
+	* Added code to bootstrap fop(1) to 'repo/install_rivendell_devel.sh'.
+	* Updated the 'make clean' repo rule to remove leftover '.sig' files.
