@@ -48,3 +48,6 @@
 2021-10-11 Fred Gleason <fredg@paravelsystems.com>
 	* Added installation steps to the HOWTO regarding system
 	registration and updates.
+2021-10-11 Fred Gleason <fredg@paravelsystems.com>
+	* Added command to tag dependencies to
+	'repo/install_rivendell_Devel.sh'.

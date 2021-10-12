@@ -22,6 +22,11 @@
 #
 
 #
+# Tag Dependencies
+#
+dnf mark install apr apr-util apr-util-bdb apr-util-openssl cdparanoia-libs hpklinux httpd httpd-filesystem httpd-tools id3lib jack-audio-connection-kit libcoverart libdiscid libffado libxml++ mod_http2 python3-mysql python3-pyserial qt5-qtbase-mysql qt5-qtstyleplugins redhat-logos-httpd
+
+#
 # Install Packages
 #
 yum -y install git gcc-c++ automake autoconf libtool qt-devel libcurl-devel cdparanoia-devel hpklinux-devel alsa-lib-devel jack-audio-connection-kit-devel libsamplerate-devel libsndfile-devel id3lib-devel libvorbis-devel flac-devel pam-devel soundtouch-devel twolame-devel libmad-devel lame-devel rpm-build createrepo fop docbook5-style-xsl libxslt kernel-devel rpm-sign man-pages openssl-devel taglib-devel libmusicbrainz5-devel libdiscid-devel libcoverart libcoverart-devel
