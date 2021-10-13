@@ -67,3 +67,5 @@
 	installation of the Docbook5 stylesheets.
 2021-10-12 Fred Gleason <fredg@paravelsystems.com>
 	* Added 'assets/fop-2.6-bin.tar.gz' to the rpm.
+2021-10-13 Fred Gleason <fredg@paravelsystems.com>
+	* Added a 'make post' target in 'docs/'.

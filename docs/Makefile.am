@@ -29,6 +29,9 @@
 
 all-local:	index.html
 
+post:	
+	rsync -rptgoDv --copy-links --delete --exclude Makefile --exclude Makefile.in --exclude Makefile.am --exclude *.xml . software.paravelsystems.com::howtos/rhel/8rd4/
+
 EXTRA_DIST = index.html\
              index.xml\
              rhel8-administratorpassword.png\
