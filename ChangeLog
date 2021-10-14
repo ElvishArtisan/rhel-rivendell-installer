@@ -71,3 +71,5 @@
 	* Added a 'make post' target in 'docs/'.
 2021-10-13 Fred Gleason <fredg@paravelsystems.com>
 	* Incremented the package version to 0.2.1rhel8.
+2021-10-13 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed typos in 'docs/index.xml'.

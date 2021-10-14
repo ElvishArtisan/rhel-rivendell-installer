@@ -566,7 +566,7 @@
     <userinput>su -</userinput>
   </para>
   <para>
-    You will be prompted for the user &quot;rd&quot; password. Type it,
+    You will be prompted for the user &quot;root&quot; password. Type it,
     and then press the <userinput>Enter</userinput> key.
   </para>
   <note>
@@ -673,44 +673,6 @@
     <userinput>Enter</userinput> key.
   </para>
   <para>
-    Depending upon the speed of the Internet connection, installation will
-    typically take around fifteen minutes. When installation is
-    complete, reboot the system with the command:
-  </para>
-  <para>
-    <userinput>sudo reboot</userinput>
-  </para>
-  <para>
-    After the reboot, the system is ready for service.
-  </para>
-
-
-  <para>
-    Three different types of installation are available. For a stand-alone
-    setup (single, self-contained Rivendell system), start the script
-    with the command:
-  </para>
-  <para>
-    <userinput>/root/install_rivendell.sh --standalone</userinput>
-  </para>
-  <para>
-    For a server setup (system capable of hosting Rivendell client machines
-    that share the server's database and audio store), start the script
-    with the command:
-  </para>
-  <para>
-    <userinput>/root/install_rivendell.sh --server</userinput>
-  </para>
-  <para>
-    For a pure client setup (one that uses a central server for the database
-    and audio store), first create a host entry for the new client in
-    RDAdmin on the server (RDAdmin->ManageHosts->Add), then start the
-    script with the command:
-  </para>
-  <para>
-    <userinput>/root/install_rivendell.sh --client</userinput>
-  </para>
-  <para>
     Depending upon the speed of the Internet connection, installation can take
     between several minutes to an hour or more.  When installation is
     complete, reboot the system with the command:
@@ -723,10 +685,9 @@
 <sect1>
   <title>Final Details</title>
   <para>
-    After rebooting, the system will come back in GUI mode, automatically
-    logged in as user <userinput>rd</userinput>.  To secure the system fully,
-    open and <computeroutput>Terminal</computeroutput> as directed above
-    and perform the following steps:
+    After rebooting, the system will come back in GUI mode. To secure the
+    system fully, open a <computeroutput>Terminal</computeroutput> as
+    directed above and perform the following steps:
   </para>
   <orderedlist>
     <listitem>
