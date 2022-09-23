@@ -125,7 +125,6 @@ mv /etc/selinux/config /etc/selinux/config-original
 cp -f /usr/share/rhel-rivendell-installer/selinux.config /etc/selinux/config
 systemctl disable firewalld
 rm -f /etc/asound.conf
-cp /usr/share/rhel-rivendell-installer/asihpi.conf /etc/modprobe.d/
 cp /usr/share/rhel-rivendell-installer/asound.conf /etc/
 cp /usr/share/rhel-rivendell-installer/Reyware.repo /etc/yum.repos.d/
 cp /usr/share/rhel-rivendell-installer/RPM-GPG-KEY-Reyware /etc/pki/rpm-gpg/

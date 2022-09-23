@@ -2,7 +2,7 @@
 ##
 ## assets/ Makefile.am for rhel-rivendell-installer
 ##
-##   (C) Copyright 2016-2021 Fred Gleason <fredg@paravelsystems.com>
+##   (C) Copyright 2016-2022 Fred Gleason <fredg@paravelsystems.com>
 ##
 ##   This program is free software; you can redistribute it and/or modify
 ##   it under the terms of the GNU General Public License version 2 as
@@ -20,8 +20,7 @@
 ## Use automake to process this into a Makefile.in
 
 
-EXTRA_DIST = asihpi.conf\
-             asound.conf\
+EXTRA_DIST = asound.conf\
              autologin.patch\
              auto.misc.client_template\
              auto.misc.template\

@@ -73,3 +73,5 @@
 	* Incremented the package version to 0.2.1rhel8.
 2021-10-13 Fred Gleason <fredg@paravelsystems.com>
 	* Fixed typos in 'docs/index.xml'.
+2022-09-23 Fred Gleason <fredg@paravelsystems.com>
+	* Removed '/etc/modprobe.d/asihpi.conf'.

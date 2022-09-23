@@ -2,7 +2,7 @@
 ##
 ##    Rivendell Installation Script
 ##
-##    Copyright (C) 2016-2021  Fred Gleason <fredg@paravelsystems.com>
+##    Copyright (C) 2016-2022 Fred Gleason <fredg@paravelsystems.com>
 ##
 ##    This program is free software; you can redistribute it and/or modify
 ##    it under the terms of version 2 of the GNU General Public License as
@@ -49,7 +49,6 @@ Bootstrap script for installing Rivendell on a @DISTRO_NAME@ system.
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer
 cp assets/installer_install_rivendell.sh $RPM_BUILD_ROOT/%{_datadir}/rhel-rivendell-installer
-cp assets/asihpi.conf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/selinux.config $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/smb.conf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/limits.conf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
