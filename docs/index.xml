@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
 <info>
-  <title>Installing Rivendell 4 on a RHEL-8 System</title>
+  <title>Installing Rivendell 4 on a RedHat Enterprise Linux 8 System</title>
   <author>
     <personname>
       <firstname>Fred</firstname>
@@ -27,10 +27,10 @@
     <title>Overview</title>
     <para>
       This HOWTO contains procedures for installing the
-      Rivendell Radio Automation System on a system running RHEL-8.
-      While the screenshots are specific to RHEL-8, these instructions
-      are also applicable to other RedHat Enterprise 8 (RHEL-8) -based
-      distributions.
+      Rivendell Radio Automation System on a system running RedHat
+      Enterprise Linux 8 (RHEL-8). While the screenshots are specific to
+      RHEL-8, these instructions are also applicable to other distributions
+      derived from RedHat Enterprise 8.
     </para>
     <para>
       Installing Rivendell on RHEL-8 consists of three primary steps:

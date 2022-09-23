@@ -75,3 +75,6 @@
 	* Fixed typos in 'docs/index.xml'.
 2022-09-23 Fred Gleason <fredg@paravelsystems.com>
 	* Removed '/etc/modprobe.d/asihpi.conf'.
+2022-09-23 Fred Gleason <fredg@paravelsystems.com>
+	* Modified the 'Overview' section of the HOWTO to clarify its
+	applicability to derived distributions.
