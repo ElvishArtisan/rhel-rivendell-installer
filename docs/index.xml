@@ -15,8 +15,8 @@
   <title>Warning</title>
   <para>
     This installation HOWTO and the version of Rivendell that it
-    installs are intended for testing purposes only. As such, it is quite
-    likely that they contain bugs, including serious ones that could lead
+    installs are intended for testing purposes only. As such, it is
+    possible that they contain bugs, including serious ones that could lead
     to LOSS OF DATA! DO NOT use this HOWTO for creating production systems!
   </para>
 </sect1>
