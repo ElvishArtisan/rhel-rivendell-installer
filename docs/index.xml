@@ -38,11 +38,6 @@
 	  RedHat Enterprise Linux 7.x
 	</para>
       </listitem>
-      <listitem>
-	<para>
-	  Scientific Linux 7.x
-	</para>
-      </listitem>
     </itemizedlist>
     <para>
       Installing Rivendell on CentOS-7 consists of three primary steps:
