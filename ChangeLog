@@ -81,3 +81,5 @@
 2022-10-12 Fred Gleason <fredg@paravelsystems.com>
 	* Modified the testing warning in the HOWTO to reflect release
 	candidate rather than beta code status.
+2022-10-12 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.9.0rhel8.
