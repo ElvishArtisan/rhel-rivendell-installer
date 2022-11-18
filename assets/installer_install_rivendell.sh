@@ -2,7 +2,7 @@
 
 # installer_install_rivendell.sh
 #
-# Install Rivendell 4.x on an RHEL 8 system
+# Install Rivendell 4.x on an RHEL 9 system
 #
 
 #
@@ -41,13 +41,13 @@ fi
 #
 # Configure Repos
 #
-dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-wget https://$REPO_HOSTNAME/rhel/8com/Paravel-Commercial.repo -P /etc/yum.repos.d/
+dnf -y install epel-release
+wget https://$REPO_HOSTNAME/rhel/9com/Paravel-Commercial.repo -P /etc/yum.repos.d/
 
 #
 # Install Dependencies
 #
-dnf -y install patch evince telnet lwmon nc samba paravelview ntpstat emacs twolame-libs libmad nfs-utils cifs-utils samba-client net-tools alsa-utils cups tigervnc-server-minimal pygtk2 cups gedit ntfs-3g ntfsprogs autofs
+dnf -y install patch evince telnet lwmon nc samba paravelview ntpstat emacs twolame-libs libmad nfs-utils cifs-utils samba-client net-tools alsa-utils cups tigervnc-server-minimal cups gedit ntfs-3g ntfsprogs autofs
 
 if test $MODE = "server" ; then
     #
@@ -99,9 +99,6 @@ if test $MODE = "standalone" ; then
     dnf -y install mariadb-server
     systemctl start mariadb
     systemctl enable mariadb
-    mkdir -p /etc/systemd/system/mariadb.service.d/
-    cp /usr/share/rhel-rivendell-installer/limits.conf /etc/systemd/system/mariadb.service.d/
-    systemctl daemon-reload
 
     #
     # Enable DB Access for localhost
@@ -129,8 +126,6 @@ cp /usr/share/rhel-rivendell-installer/asound.conf /etc/
 cp /usr/share/rhel-rivendell-installer/Reyware.repo /etc/yum.repos.d/
 cp /usr/share/rhel-rivendell-installer/RPM-GPG-KEY-Reyware /etc/pki/rpm-gpg/
 mkdir -p /usr/share/pixmaps/rivendell
-cp /usr/share/rhel-rivendell-installer/rdairplay_skin.png /usr/share/pixmaps/rivendell/
-cp /usr/share/rhel-rivendell-installer/rdpanel_skin.png /usr/share/pixmaps/rivendell/
 mv /etc/samba/smb.conf /etc/samba/smb-original.conf
 cp /usr/share/rhel-rivendell-installer/smb.conf /etc/samba/
 cp /usr/share/rhel-rivendell-installer/no_screen_blank.conf /etc/X11/xorg.conf.d/
@@ -140,11 +135,6 @@ ln -s /usr/share/rivendell/opsguide.pdf /etc/skel/Desktop/Operations\ Guide.pdf
 patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
 # FIXME: Add to existing accounts too!
 
-#tar -C /etc/skel -zxf /usr/share/rhel-rivendell-installer/xfce-config.tgz
-#adduser -c Rivendell\ Audio --groups audio,wheel $USER_NAME
-#chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
-#chmod 0755 /home/$USER_NAME
-#patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
 dnf -y install lame-libs rivendell rivendell-opsguide
 
 if test $MODE = "server" ; then
