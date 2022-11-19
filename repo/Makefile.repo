@@ -1,4 +1,4 @@
-# Makefile for the Paravel 8rd4 repo.
+# Makefile for the Paravel 9rd4 repo.
 
 #SHELL := /bin/bash
 
@@ -6,12 +6,13 @@
 
 
 sign:	clean sane
+	gpgconf --kill gpg-agent
 	rpm --resign Packages/*.rpm
 	createrepo .
 
 
 post:	sane
-	rsync -rptgoDv --copy-links --delete --exclude Makefile --exclude sanity_check.sh . software.paravelsystems.com::redhat_8/8rd4/
+	rsync -rptgoDv --copy-links --delete --exclude Makefile --exclude sanity_check.sh . software.paravelsystems.com::redhat_9/9rd4/
 
 sane:	
 	./sanity_check.sh  

@@ -1,13 +1,13 @@
 The files in this directory should be symlinked in the top directory of the
 yum repo file heirarchy, as follows:
 
-Makefile.repo => 8rd4/Makefile
+Makefile.repo => 9rd4/Makefile
 
-install_rivendell_devel.sh => 8rd4/install_rivendell_devel.sh
+install_rivendell_devel.sh => 9rd4/install_rivendell_devel.sh
 
-install_rivendell.sh => 8rd4/install_rivendell.sh
+install_rivendell.sh => 9rd4/install_rivendell.sh
 
-sanity_check.sh => 8rd4/sanity_check.sh
+sanity_check.sh => 9rd4/sanity_check.sh
 
 'sanity_check.sh' should return 0 if the environment appears sane, otherwise
 non-zero.
