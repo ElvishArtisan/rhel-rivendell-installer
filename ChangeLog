@@ -94,3 +94,6 @@
 	* Updated the installation HOWTO to work with RHEL 9.
 2022-11-22 Fred Gleason <fredg@paravelsystems.com>
 	* Incremented the package version to 0.9.0rhel9
+2022-11-22 Fred Gleason <fredg@paravelsystems.com>
+	* Added code to enable the 'crb' repo to
+	'assets/installer_install_rivendell.sh'.

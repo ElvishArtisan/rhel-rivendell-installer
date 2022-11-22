@@ -42,6 +42,7 @@ fi
 # Configure Repos
 #
 dnf -y install epel-release
+/usr/bin/crb enable
 wget https://$REPO_HOSTNAME/rhel/9com/Paravel-Commercial.repo -P /etc/yum.repos.d/
 
 #
