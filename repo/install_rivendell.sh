@@ -4,7 +4,7 @@
 #
 # User-facing installation script for Rivendell
 #
-#   (C) Copyright 2021 Fred Gleason <fredg@paravelsystems.com>
+#   (C) Copyright 2021-2022 Fred Gleason <fredg@paravelsystems.com>
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as
@@ -44,8 +44,8 @@ function CheckNetwork {
 
 function AddRepos {
     echo "Adding repo..."
-    wget https://software.paravelsystems.com/rhel/8rd4/RPM-GPG-KEY-Paravel-Broadcast -P /etc/pki/rpm-gpg/
-    wget https://software.paravelsystems.com/rhel/8rd4/Paravel-Rivendell4.repo -P /etc/yum.repos.d/
+    wget https://software.paravelsystems.com/rhel/9rd4/RPM-GPG-KEY-Paravel-Broadcast -P /etc/pki/rpm-gpg/
+    wget https://software.paravelsystems.com/rhel/9rd4/Paravel-Rivendell4.repo -P /etc/yum.repos.d/
     dnf -y clean expire-cache
     dnf -y install rhel-rivendell-installer
 }

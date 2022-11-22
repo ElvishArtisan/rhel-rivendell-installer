@@ -2,7 +2,7 @@
 ##
 ## docs/Automake.am for rhel-rivendell-installer
 ##
-## (C) Copyright 2016-2021 Fred Gleason <fredg@paravelsystems.com>
+## (C) Copyright 2016-2022 Fred Gleason <fredg@paravelsystems.com>
 ##
 ##   This program is free software; you can redistribute it and/or modify
 ##   it under the terms of the GNU General Public License version 2 as
@@ -30,46 +30,33 @@
 all-local:	index.html
 
 post:	
-	rsync -rptgoDv --copy-links --delete --exclude Makefile --exclude Makefile.in --exclude Makefile.am --exclude *.xml . software.paravelsystems.com::howtos/rhel/8rd4/
+	rsync -rptgoDv --copy-links --delete --exclude Makefile --exclude Makefile.in --exclude Makefile.am --exclude *.xml . software.paravelsystems.com::howtos/rhel/9rd4/
 
 EXTRA_DIST = index.html\
              index.xml\
-             rhel8-administratorpassword.png\
-             rhel8-addnewmountpoint.png\
-             rhel8-addnewmountpointefi.png\
-             rhel8-available_updates.png\
-             rhel8-bootscreen.png\
-             rhel8-createuser.png\
-             rhel8-details-about.png\
-             rhel8-details-about2.png\
-             rhel8-gettingstarted.png\
-             rhel8-gnomedesktop.png\
-             rhel8-initialsetup.png\
-             rhel8-initialsetup2.png\
-             rhel8-installingupdates.png\
-             rhel8-installationcomplete.png\
-             rhel8-installationdestination.png\
-             rhel8-installationprogress.png\
-             rhel8-installationsummary.png\
-             rhel8-installationsummary1.png\
-             rhel8-installationsummary2.png\
-             rhel8-licenseinformation.png\
-             rhel8-loginscreen.png\
-             rhel8-manualpartitioning.png\
-             rhel8-manualpartitioning_standard.png\
-             rhel8-network.png\
-             rhel8-passwordscreen.png\
-             rhel8-privacy.png\
-             rhel8-readytogo.png\
-             rhel8-registersystem.png\
-             rhel8-setlanguage.png\
-             rhel8-sethostname.png\
-             rhel8-settings.png\
-             rhel8-softwareselection.png\
-             rhel8-startterminal.png\
-             rhel8-superuser.png\
-             rhel8-typing.png\
-             rhel8-welcome.png
+             rhel9-addnewmountpointefi.png\
+             rhel9-addnewmountpoint.png\
+             rhel9-bootscreen.png\
+             rhel9-createuser.png\
+             rhel9-gnomedesktop.png\
+             rhel9-installationcomplete.png\
+             rhel9-installationdestination.png\
+             rhel9-installationprogress.png\
+             rhel9-installationsummary1.png\
+             rhel9-installationsummary2.png\
+             rhel9-installationsummary.png\
+             rhel9-installer_menu.png\
+             rhel9-loginscreen.png\
+             rhel9-manualpartitioning.png\
+             rhel9-manualpartitioning_standard.png\
+             rhel9-network.png\
+             rhel9-search-settings.png\
+             rhel9-sethostname.png\
+             rhel9-setlanguage.png\
+             rhel9-softwareselection.png\
+             rhel9-superuser.png\
+             rhel9-terminal-window.png\
+             rhel9-welcome.png
 
 CLEANFILES = *~
 MAINTAINERCLEANFILES = *~\

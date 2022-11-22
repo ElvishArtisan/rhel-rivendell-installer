@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <article xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink">
 <info>
-  <title>Installing Rivendell 4 on a RedHat Enterprise Linux 8 System</title>
+  <title>Installing Rivendell 4 on a Rocky Linux 9 System</title>
   <author>
     <personname>
       <firstname>Fred</firstname>
@@ -27,13 +27,11 @@
     <title>Overview</title>
     <para>
       This HOWTO contains procedures for installing the
-      Rivendell Radio Automation System on a system running RedHat
-      Enterprise Linux 8 (RHEL-8). While the screenshots are specific to
-      RHEL-8, these instructions are also applicable to other distributions
-      derived from RedHat Enterprise 8.
+      Rivendell Radio Automation System on a system running Rocky
+      Linux 9.
     </para>
     <para>
-      Installing Rivendell on RHEL-8 consists of three primary steps:
+      Installing Rivendell on Rocky Linux 9 consists of three primary steps:
     </para>
     <orderedlist>
       <listitem>
@@ -71,8 +69,8 @@
       <listitem>
 	<para>
 	  A 'DVD' ISO installer image for RHEL-8, available at
-	  <link xlink:href="https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux">
-	    https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux</link>.
+	  <link xlink:href="https://rockylinux.org/download/">
+	    https://rockylinux.org/download/</link>.
 	    After downloading the ISO image, make a "bootable" USB
 	    key using
 	    <link xlink:href="https://wiki.centos.org/HowTos/InstallFromUSBkey">
@@ -91,18 +89,18 @@
 <sect1>
   <title>Installing the Base Distribution</title>
   <para>
-    Boot the RHEL-8 installation media (DVD or USB key). You should wind
+    Boot the Rocky 9 installation media (DVD or USB key). You should wind
     up at the initial boot screen.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-bootscreen.png" scale="90"/>
+	<imagedata fileref="rhel9-bootscreen.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    Highlight the <computeroutput>Install Red Hat Enterprise Linux 8</computeroutput>
+    Highlight the <computeroutput>Install Rocky Linux 9</computeroutput>
     prompt and then press <userinput>Enter</userinput> to start the
     installation.
   </para>
@@ -114,7 +112,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-setlanguage.png" scale="90"/>
+	<imagedata fileref="rhel9-setlanguage.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -125,7 +123,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-installationsummary.png"  scale="90"/>
+	<imagedata fileref="rhel9-installationsummary.png"  scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -136,7 +134,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-softwareselection.png"  scale="90"/>
+	<imagedata fileref="rhel9-softwareselection.png"  scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -154,7 +152,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-installationdestination.png" scale="90"/>
+	<imagedata fileref="rhel9-installationdestination.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -175,7 +173,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-manualpartitioning.png" scale="90"/>
+	<imagedata fileref="rhel9-manualpartitioning.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -188,7 +186,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-manualpartitioning_standard.png" scale="90"/>
+	<imagedata fileref="rhel9-manualpartitioning_standard.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -199,7 +197,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-addnewmountpoint.png" scale="50"/>
+	<imagedata fileref="rhel9-addnewmountpoint.png" scale="50"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -210,10 +208,16 @@
     <computeroutput>Desired Capacity:</computeroutput> field, then
     touch the <computeroutput>Add mount point</computeroutput> button.
   </para>
+  <note>
+    Depending upon the age and BIOS settings of the target computer, you
+    may not see a <computeroutput>/boot/efi</computeroutput> entry, in
+    which case simply skip this step and continue creating the other
+    partitions as explained below.
+  </note>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-addnewmountpointefi.png" scale="50"/>
+	<imagedata fileref="rhel9-addnewmountpointefi.png" scale="50"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -230,7 +234,7 @@
 	  <row><entry>Mount Point</entry><entry>Desired Capacity</entry></row>
 	</thead>
 	<tbody>
-	  <row><entry>swap</entry><entry>8192M</entry></row>
+	  <row><entry>swap</entry><entry>4G</entry></row>
 	  <row><entry>/</entry><entry>25G</entry></row>
 	  <row><entry>/home</entry><entry>100G</entry></row>
 	  <row><entry>/var</entry><entry>[leave blank]</entry></row>
@@ -249,7 +253,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-installationsummary1.png" scale="90"/>
+	<imagedata fileref="rhel9-installationsummary1.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -260,7 +264,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-installationsummary2.png" scale="90"/>
+	<imagedata fileref="rhel9-installationsummary2.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -280,7 +284,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-createuser.png" scale="90"/>
+	<imagedata fileref="rhel9-createuser.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -292,7 +296,7 @@
   </para>
   <caution>
     To ensure system security, use a password that is different from
-    the one used for the <computeroutput>root</computeroutput>.
+    the one used for the <computeroutput>root</computeroutput> account.
   </caution>
   <para>
     Touch the <computeroutput>Begin Installation</computeroutput> button
@@ -301,7 +305,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-installationprogress.png" scale="90"/>
+	<imagedata fileref="rhel9-installationprogress.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -312,67 +316,25 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-installationcomplete.png" scale="90"/>
+	<imagedata fileref="rhel9-installationcomplete.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    The system will reboot and come up to the
+    The system will reboot and come up to the system login screen.
     <computeroutput>INITIAL SETUP</computeroutput> screen.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-initialsetup.png" scale="90"/>
+	<imagedata fileref="rhel9-loginscreen.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    Touch the <computeroutput>License Information</computeroutput> item
-    to bring up the <computeroutput>License Information</computeroutput>
-    screen.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-licenseinformation.png" scale="90"/>
-      </imageobject>
-    </mediaobject>
-  </para>
-  <para>
-    Tick the <computeroutput>I accept the license agreement</computeroutput>
-    checkbox and then touch the <computeroutput>Done</computeroutput>
-    button to return to the <computeroutput>INITIAL SETUP</computeroutput>
-    screen.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-initialsetup2.png" scale="90"/>
-      </imageobject>
-    </mediaobject>
-  </para>
-  <para>
-    Touch the <computeroutput>FINISH CONFIGURATION</computeroutput> button.
-    Then Login screen will then appear.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-loginscreen.png" scale="90"/>
-      </imageobject>
-    </mediaobject>
-  </para>
-  <para>
-    Click the <computeroutput>Rivendell Audio</computeroutput> item and
-    enter the user password that was set earlier.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-passwordscreen.png" scale="90"/>
-      </imageobject>
-    </mediaobject>
+    Touch the <computeroutput>Rivendell Audio</computeroutput> item and
+    log in, using the <userinput>Rivendell Audio</userinput> password that
+    you created earlier.
   </para>
   <para>
     The system will log in
@@ -381,11 +343,28 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-welcome.png" scale="90"/>
+	<imagedata fileref="rhel9-welcome.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
+    Touch the <computeroutput>No Thanks</computeroutput> button to show
+    the Gnome desktop, then enter the word <userinput>settings</userinput>
+    in the <computeroutput>Type to search</computeroutput> field at the top
+    of the screen and touch the <computeroutput>Settings</computeroutput>
+    icon.
+  </para>
+  <para>
+    <mediaobject>
+      <imageobject>
+	<imagedata fileref="rhel9-search-settings.png" scale="90"/>
+      </imageobject>
+    </mediaobject>
+  </para>
+
+<!--
+-->
+<!--
     Choose the desired language and then touch the
     <computeroutput>Next</computeroutput> button to bring up the
     <computeroutput>Typing</computeroutput> screen.
@@ -437,13 +416,9 @@
     </mediaobject>
   </para>
   <para>
-    Touch the 'X' in the upper right-hand corner to dismiss the
-    window and show the Gnome Desktop.
-  </para>
-  <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-gnomedesktop.png" scale="90"/>
+	<imagedata fileref="rhel9-gnomedesktop.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -455,106 +430,31 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-settings.png" scale="90"/>
+	<imagedata fileref="rhel9-settings.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
+-->
   <para>
     Touch the <computeroutput>Network</computeroutput> item in the left-hand
-    pane and configure network access as is appropriate for your site.
+    pane and configure network access as is appropriate for your site. Close
+    the <computeroutput>Settings</computeroutput> applet when you're done.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-network.png" scale="90"/>
+	<imagedata fileref="rhel9-network.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
   <para>
-    Next, touch the <computeroutput>Details</computeroutput> item in the
-    left-hand pane to bring up the <computeroutput>About</computeroutput>
-    screen.
+    Next, touch the <computeroutput>Terminal</computeroutput> icon to open a
+    Terminal window.
   </para>
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-details-about.png" scale="90"/>
-      </imageobject>
-    </mediaobject>
-  </para>
-  <para>
-    Touch the <computeroutput>Register</computeroutput> button to bring up
-    the <computeroutput>Register System</computeroutput> dialog.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-registersystem.png" scale="70"/>
-      </imageobject>
-    </mediaobject>
-  </para>
-  <para>
-    Enter the <computeroutput>Login</computeroutput> and
-    <computeroutput>Password</computeroutput> for a Red Hat account
-    authorized to issue a subscription and then touch the
-    <computeroutput>Register</computeroutput> button. The system will
-    prompt for an &quot;Administrator&quot; password.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-administratorpassword.png" scale="70"/>
-      </imageobject>
-    </mediaobject>
-  </para>
-  <para>
-    Enter the &quot;root&quot; password that you created earlier and
-    then touch the <computeroutput>Authenticate</computeroutput> button.
-    The system will return to the <computeroutput>About</computeroutput>
-    screen.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-details-about2.png" scale="90"/>
-      </imageobject>
-    </mediaobject>
-  </para>
-  <para>
-    Touch the <computeroutput>View Updates</computeroutput> button to
-    bring up a list of available updates.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-available_updates.png" scale="90"/>
-      </imageobject>
-    </mediaobject>
-  </para>
-  <para>
-    Touch the
-    <computeroutput>Download</computeroutput> to download them. When download
-    is complete, touch the <computeroutput>Restart &amp; Update</computeroutput>
-    button to begin the update process.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-installingupdates.png" scale="90"/>
-      </imageobject>
-    </mediaobject>
-  </para>
-  <para>
-    After installing the updates, the system will reboot. Log back in as
-    user <userinput>rd</userinput>, then open a
-    <computeroutput>Terminal</computeroutput> by touching the
-    &quot;Activities&quot; item in the upper left-hand corner of the desktop
-    and then the <computeroutput>Terminal</computeroutput> icon.
-  </para>
-  <para>
-    <mediaobject>
-      <imageobject>
-	<imagedata fileref="rhel8-startterminal.png" scale="90"/>
+	<imagedata fileref="rhel9-terminal-window.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -566,7 +466,8 @@
     <userinput>su -</userinput>
   </para>
   <para>
-    You will be prompted for the user &quot;root&quot; password. Type it,
+    You will be prompted for the user &quot;root&quot; password that was
+    created earlier. Type it,
     and then press the <userinput>Enter</userinput> key.
   </para>
   <note>
@@ -575,7 +476,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-superuser.png" scale="90"/>
+	<imagedata fileref="rhel9-superuser.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -588,7 +489,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-sethostname.png" scale="90"/>
+	<imagedata fileref="rhel9-sethostname.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -600,11 +501,11 @@
 <sect1>
   <title>Running the Installation Script</title>
   <para>
-    Enter the following commands:
+    Enter the following commands into the terminal window:
   </para>
   <para>
     <userinput>wget
-    https://software.paravelsystems.com/rhel/8rd4/install_rivendell.sh -P .</userinput>
+    https://software.paravelsystems.com/rhel/9rd4/install_rivendell.sh -P .</userinput>
   </para>
   <para>
     <userinput> chmod 755 install_rivendell.sh</userinput>
@@ -618,7 +519,7 @@
   <para>
     <mediaobject>
       <imageobject>
-	<imagedata fileref="rhel8-installer_menu.png" scale="90"/>
+	<imagedata fileref="rhel9-installer_menu.png" scale="90"/>
       </imageobject>
     </mediaobject>
   </para>
@@ -633,7 +534,7 @@
 	<term>Standalone</term>
 	<listitem>
 	  <para>
-	    Install system components (Rivendell application code, MySQL
+	    Install system components (Rivendell application code, MariaDB
 	    database server and audio file store) on this machine, allowing
 	    it to operate as a completely self-contained and autonomous
 	    Rivendell system.
@@ -645,7 +546,7 @@
 	<listitem>
 	  <para>
 	    The same as &quot;Standalone&quot;, but will also configure
-	    the MySQL database and audio file store components to be shared
+	    the MariaDB database and audio file store components to be shared
 	    with additional &quot;client mode&quot; Rivendell systems.
 	  </para>
 	</listitem>
@@ -655,7 +556,7 @@
 	<listitem>
 	  <para>
 	    Install only the Rivendell application code and configure
-	    the system to use the MySQL database and audio file store
+	    the system to use the MariaDB database and audio file store
 	    components located on a separate &quot;server&quot; system.
 	    You will be prompted to enter the IP address of that server
 	    system before the installation starts.
