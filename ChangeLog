@@ -86,6 +86,6 @@
 2022-10-12 Fred Gleason <fredg@paravelsystems.com>
 	* Fixed a bug in 'repo/sanity_check.sh' that caused the test
 	to fail for point versions of RHEL-8 other than '8.4'.
-2022-12-15 Fred Gleason <fredg@paravelsystems.com>
+2022-12-16 Fred Gleason <fredg@paravelsystems.com>
 	* Modified the 'Reyware' repo to use TLS.
 	* Modified the 'Reyware' repo to default to 'disabled'.
