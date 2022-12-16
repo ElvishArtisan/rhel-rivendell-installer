@@ -89,3 +89,5 @@
 2022-12-16 Fred Gleason <fredg@paravelsystems.com>
 	* Modified the 'Reyware' repo to use TLS.
 	* Modified the 'Reyware' repo to default to 'disabled'.
+2022-12-16 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.9.2rhel8.
