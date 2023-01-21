@@ -91,3 +91,6 @@
 	* Modified the 'Reyware' repo to default to 'disabled'.
 2022-12-16 Fred Gleason <fredg@paravelsystems.com>
 	* Incremented the package version to 0.9.2rhel8.
+2023-01-21 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed a but in 'repo/sanity_check.sh that caused the 'make sane'
+	target to fail on Rocky-8.

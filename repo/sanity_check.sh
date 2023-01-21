@@ -2,7 +2,7 @@
 
 . /etc/os-release
 
-if test $ID != "rhel" ; then
+if test $ID != "rocky" ; then
     echo "unsupported distro \"$PRETTY_NAME\" detected"
     exit 1
 fi
