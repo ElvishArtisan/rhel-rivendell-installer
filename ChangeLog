@@ -94,3 +94,8 @@
 2023-01-21 Fred Gleason <fredg@paravelsystems.com>
 	* Fixed a but in 'repo/sanity_check.sh that caused the 'make sane'
 	target to fail on Rocky-8.
+2023-01-21 Fred Gleason <fredg@paravelsystems.com>
+	* Removed obsolete custom configuration for MariaDB from
+	the installer script.
+	* Fixed a bug in the installer script that attempted to
+	install the 'rivendell-opsguide' package.

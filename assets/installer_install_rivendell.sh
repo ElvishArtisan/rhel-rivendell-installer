@@ -42,6 +42,7 @@ fi
 # Configure Repos
 #
 dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+/usr/bin/crb enable
 wget https://$REPO_HOSTNAME/rhel/8com/Paravel-Commercial.repo -P /etc/yum.repos.d/
 
 #
@@ -56,9 +57,6 @@ if test $MODE = "server" ; then
     dnf -y install mariadb-server
     systemctl start mariadb
     systemctl enable mariadb
-    mkdir -p /etc/systemd/system/mariadb.service.d/
-    cp /usr/share/rhel-rivendell-installer/limits.conf /etc/systemd/system/mariadb.service.d/
-    systemctl daemon-reload
 
     #
     # Enable DB Access for localhost
@@ -99,9 +97,6 @@ if test $MODE = "standalone" ; then
     dnf -y install mariadb-server
     systemctl start mariadb
     systemctl enable mariadb
-    mkdir -p /etc/systemd/system/mariadb.service.d/
-    cp /usr/share/rhel-rivendell-installer/limits.conf /etc/systemd/system/mariadb.service.d/
-    systemctl daemon-reload
 
     #
     # Enable DB Access for localhost
@@ -145,7 +140,7 @@ patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
 #chown -R $USER_NAME:$USER_NAME /home/$USER_NAME
 #chmod 0755 /home/$USER_NAME
 #patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
-dnf -y install lame-libs rivendell rivendell-opsguide
+dnf -y install lame-libs rivendell
 
 if test $MODE = "server" ; then
     #
