@@ -99,3 +99,5 @@
 	the installer script.
 	* Fixed a bug in the installer script that attempted to
 	install the 'rivendell-opsguide' package.
+2023-01-21 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.9.3rhel8.
