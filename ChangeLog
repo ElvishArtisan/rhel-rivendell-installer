@@ -38,3 +38,8 @@
 	* Modified the 'Reyware' repo to default to use TLS.
 2022-12-16 Fred Gleason <fredg@paravelsystems.com>
 	* Incremented the package version to 0.9.2.
+2023-02-21 Fred Gleason <fredg@paravelsystems.com>
+	* Removed the installation of the MariaDB performance tweak to
+	increase the open file limit of the server process.
+	* Removed the installation of the 'rivendell-opsguide' package.
+	* Fixed a typo in the name of the installation package in the HOWTO.

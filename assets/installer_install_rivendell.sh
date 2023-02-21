@@ -62,9 +62,6 @@ if test $MODE = "server" ; then
     yum -y install mariadb-server
     systemctl start mariadb
     systemctl enable mariadb
-    mkdir -p /etc/systemd/system/mariadb.service.d/
-    cp /usr/share/rhel-rivendell-installer/limits.conf /etc/systemd/system/mariadb.service.d/
-    systemctl daemon-reload
 
     #
     # Enable DB Access for localhost
@@ -152,7 +149,7 @@ chown -R rd:rd /home/rd
 chmod 0755 /home/rd
 patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
 yum -y remove alsa-firmware alsa-firmware-tools
-yum -y install lame rivendell rivendell-opsguide
+yum -y install lame rivendell
 
 if test $MODE = "server" ; then
     #

@@ -552,7 +552,7 @@
 	Remove the Rivendell installer script with the following command:
       </para>
       <para>
-	<userinput>yum -y remove rivendell-install</userinput>
+	<userinput>yum -y remove rhel-rivendell-installer</userinput>
       </para>
     </listitem>
   </orderedlist>
