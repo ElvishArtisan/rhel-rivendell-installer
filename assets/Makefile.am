@@ -2,7 +2,7 @@
 ##
 ## assets/ Makefile.am for rhel-rivendell-installer
 ##
-##   (C) Copyright 2016-2021 Fred Gleason <fredg@paravelsystems.com>
+##   (C) Copyright 2016-2023 Fred Gleason <fredg@paravelsystems.com>
 ##
 ##   This program is free software; you can redistribute it and/or modify
 ##   it under the terms of the GNU General Public License version 2 as
@@ -30,6 +30,7 @@ EXTRA_DIST = asihpi.conf\
              limits.conf\
              no_screen_blank.conf\
              paravel_support.pdf\
+             rd.conf-sample\
              rdairplay_skin.png\
              rdpanel_skin.png\
              Reyware.repo\

@@ -1,0 +1,245 @@
+; rd.conf
+;
+; This is the default configuration file for Rivendell
+;
+; by Fred Gleason <fredg@paravelsystems.com>
+;
+
+[Identity]
+; These entries are used to define the system user and group that will
+; own the audio files.
+AudioOwner=rivendell
+AudioGroup=rivendell
+
+; These entries are used to define the system user and group that PyPAD
+; scripts will run under.
+PypadOwner=pypad
+PypadGroup=pypad
+
+; These entries are used to define the system user and group that commands
+; executed by the 'Run Shell Command' ['RN'] RML will run under.
+RnRmlOwner=rivendell
+RnRmlGroup=rivendell
+
+; This entry defines what Facility number Rivendell will use when sending
+; messages to the syslog system. The following values are recognized:
+;    1 - USER (the default)
+;   16 - LOCAL0
+;   17 - LOCAL1
+;   18 - LOCAL2
+;   19 - LOCAL3
+;   20 - LOCAL4
+;   21 - LOCAL5
+;   22 - LOCAL6
+;   23 - LOCAL7
+SyslogFacility=23
+
+; This password is used by the various Rivendell modules to log into 
+; Rivendell system services [caed(8), ripcd(8), rdcatchd(8)].
+Password=letmein
+
+; This entry is what will appear in RDSelect's list for this configuration.
+Label=Default
+
+; This entry will override the default value of the HTTP_USER_AGENT header
+; used when making HTTP requests. Rarely needed!
+;HttpUserAgent=Mozilla/5.0 rivendell/3.0
+
+
+[mySQL]
+; The connection parameters for the MySQL server.
+;
+Hostname=%MYSQL_HOSTNAME%
+Loginname=%MYSQL_LOGINNAME%
+Password=%MYSQL_PASSWORD%
+Database=Rivendell
+
+; The Qt SQL driver plug-in to use. It should seldom be necessary to
+; change this.
+;
+Driver=QMYSQL3
+
+; The interval between 'keep-alive' queries to the MySQL server (seconds)
+HeartbeatInterval=360
+
+; The following setting controls the attributes of new DB tables
+; created by Rivendell.
+;Engine=MyISAM
+
+; The following setting controls the collation used for new DB tables
+; created by Rivendell. Collations control how text is sorted and matched
+; by the database engine. Versions of MySQL earlier than v8.0 should use
+; 'utf8mb4_general_ci', while those using v8.0 or later may find it
+; beneficial to switch to 'utf8mb4_0900_ai_ci', which provides support
+; for more up-to-date Unicode standards. For more information, see:
+;
+; https://www.monolune.com/what-is-the-utf8mb4_0900_ai_ci-collation/
+;
+Collation=utf8mb4_general_ci
+;Collation=utf8mb4_0900_ai_ci
+
+[AudioStore]
+MountSource=%NFS_MOUNT_SOURCE%
+MountType=%NFS_MOUNT_TYPE%
+MountOptions=defaults
+CaeHostname=
+XportHostname=
+
+[Fonts]
+; Directives in the [Fonts] section allows the fonts used by Rivendell to
+; be specified, with the default being to use the 'System' font. It should
+; seldom be necessary to change these!
+
+; 'Family=' can be used to specify the name of the font to use
+; --e.g. 'Helvetica'.
+;Family=System
+
+; 'ButtonSize=' specifies the size of the font to be used for button labels.
+;ButtonSize=12
+
+; 'LabelSize=' specifies the size of the font to be used for field labels.
+;LabelSize=11
+
+; 'DefaultSize=' specifies the size of the font to be used for field data.
+;DefaultSize=11
+
+[Provisioning]
+; If CreateHost=Yes, a Host entry will be automatically created in the DB
+; when the 'rivendell' system service is started, using the Host definition
+; specified in NewHostTemplate= as the template. The new host entry will be
+; assigned the IP address bound to the network interface specified by
+; NewHostIpAddress= ('lo' by default). The new host's Short Name can be
+; populated using the NewHostShortName= parameter, which takes a Perl-style
+; regex to capture the required text from the full host name, using the
+; captured group from the regex specified in 'NewHostShortNameGroup='.
+CreateHost=No
+NewHostTemplate=some_host_entry
+NewHostIpAddress=lo
+NewHostShortNameRegex=[^*]*
+NewHostShortNameGroup=0
+
+; If CreateService=Yes, a Service entry will be automatically created in the DB
+; when the 'rivendell' system service is started, using the Service definition
+; specified in NewServiceTemplate= as the template. The new service's name
+; is determined by the NewServiceNameRegex= parameter, which takes a Perl-style
+; regex to capture the required text from the full host name, using the
+; captured group from the regex specified in 'NewServiceNameGroup='.
+CreateService=No
+NewServiceTemplate=some_service_entry
+NewServiceNameRegex=[^*]*
+NewServiceNameGroup=0
+
+[Logs]
+; Log upload/download debug data.  You generally want to enable this only
+; when debugging a specific upload/download problem, as *lots* of data
+; can be generated.  Valid arguments are 'Yes' or 'No'.
+LogXloadDebugData=No
+
+[Alsa]
+; ALSA Parameters
+; (It should seldom be necessary to tweak these)
+PeriodQuantity=4
+PeriodSize=1024
+ChannelsPerPcm=-1
+
+; [SoftKeys]
+;
+; This section can be used to program the RDSoftKeys applet, or you
+; can use the --map-file=<filename> switch to configure multiple soft
+; key setups on the same host.
+; 
+; StayOnTop=No
+;
+; Columns=10
+;
+; Command1=hithlum.srlabs.loc:GO 3 1 1 0!
+; Legend1=Telos 1 ON
+; Color1=red
+; 
+; Command2=hithlum.srlabs.loc:GO 3 2 1 0!
+; Legend2=Telos 2 ON
+; Color2=red
+;
+
+[Tuning]
+; This directive tells Rivendell modules how long to wait for the
+; 'rivendell' systemd service to become active (seconds). Default
+; value is '30'.
+ServiceTimeout=30
+
+; These directives define the realtime parameters used when running
+; audio components.  Normally, these are useful only for debugging.
+UseRealtime=Yes
+RealtimePriority=9
+
+; Introduce a delay of this many microseconds in each loop iteration
+; when transcoding files.
+TranscodingDelay=0
+
+; Directory to use for temporary files. If left undefined, the value of
+; the $TMPDIR environmental variable will be used. If $TMPDIR is not defined,
+; then '/tmp' will be used.
+;TempDirectory=/tmp
+
+; Seconds to wait before rdservice(8) launches the caed(8) daemon. Needed
+; in some setups to allow other subsystems --e.g. ALSA -- to stabilize after
+; bootup.
+;ServiceStartupDelay=5 
+
+[Hacks]
+; Completely disable maintenance checks on this host.
+; DisableMaintChecks=Yes
+
+; Lock memory in RDAirPlay
+; LockRdairplayMemory=Yes
+
+; Number at which to start looking for available UDP ports for VU
+; meters. You should only change this if you have another service
+; using UDP Port numbers in the range MeterPortBaseNumber to
+; (MeterPortBaseNumber + MeterPortRange) (extremely rare).
+; MeterPortBaseNumber=30000
+
+; Maximum number of UDP Ports to consider for VU meters. You may need
+; to change this if you have many (say, more than 80) Rivendell
+; dropboxes configured. Rivendell imposes a hard limit of 999 on this
+; setting.
+; MeterPortRange=100
+
+; Save original files processed by the Webget service to the indicated
+; directory. Files so saved will have the date-time that the file was
+; processed prepended to the original filename, for example:
+;
+;    myfile.mp3 => YYYYMMDD-HHMMSS-myfile.mp3
+;
+; Default action is to not save files.
+; SaveWebgetFilesDirectory=
+
+; Suppress meter update messages on the notification multicast channel.
+;
+;SuppressRdcatchMeterUpdates=No
+
+[Debugging]
+; IMPORTANT NOTE:
+; The directives in this section can send large amounts of data to the
+; syslog. These directives should be enabled for debugging purposes only! 
+
+; Log all filter search strings to the syslog, at the specified priority level.
+; See the 'level' parameter in the syslog(3) man page for the set of available
+; priority levels. An empty argument disables logging. 
+;
+; LogSearchStrings=LOG_DEBUG
+LogSearchStrings=
+
+; Send detailed debugging information to the syslog whenever a log refresh
+; is performed in rdairplay(1) or rdvairplayd(8).
+; See the 'level' parameter in the syslog(3) man page for the set of available
+; priority levels. An empty argument disables logging. 
+; LogLogRefresh=LOG_DEBUG
+LogLogRefresh=
+
+; Send all SQL queries (including 'select' queries) to the syslog at the
+; specified priority level.
+; See the 'level' parameter in the syslog(3) man page for the set of available
+; priority levels. An empty argument disables logging. 
+; LogSqlQueries=LOG_DEBUG
+LogSqlQueries=

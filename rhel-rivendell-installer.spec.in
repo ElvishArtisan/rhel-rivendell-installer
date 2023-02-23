@@ -64,6 +64,7 @@ cp assets/no_screen_blank.conf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-install
 cp assets/auto.rd.audiostore.template $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/auto.misc.client_template $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/auto.misc.template $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
+cp assets/rd.conf-sample $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/skel
 cp assets/*.pdf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/skel/
