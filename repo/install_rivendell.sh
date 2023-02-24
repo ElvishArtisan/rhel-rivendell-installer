@@ -104,19 +104,21 @@ echo "the Internet and installs it on this system."
 echo
 echo "Three different styles of setup for Rivendell are available:"
 echo
-echo " 1) Standalone. All system components (Rivendell code, database server"
-echo "    and audio store) will be installed on this system, allowing it to"
-echo "    function as a self-contained, autonomous Rivendell system."
+echo " 1) Standalone. All system components (Rivendell application code,"
+echo "    database server and audio store) will be installed on this system,"
+echo "    allowing it to function as a self-contained, autonomous Rivendell"
+echo "    system."
 echo
 echo " 2) Server. Same as Standalone, but in addition, configure the database"
 echo "    and audio store to be shared with other Rivendell systems over the"
 echo "    network."
 echo
-echo " 3) Client. Install just the Rivendell components, configuring it to"
-echo "    use the database and audio store on a shared server. You will be"
-echo "    prompted for the IP address of the server, as well as the username"
-echo "    and password of a MySQL/MariaDB database account for accessing the"
-echo "    Rivendell database on that server."
+echo " 3) Client. Install just the Rivendell application components,"
+echo "    configuring them to use the database and audio store on one or two"
+echo "    shared server(s). You will be prompted for the IP address of the"
+echo "    server(s), as well as the name of the database and the "
+echo "    username / password of the MariaDB database account for accessing"
+echo "    the Rivendell database on that server."
 echo
 echo " 4) Do nothing, and exit this installer."
 echo
