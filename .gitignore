@@ -1,5 +1,7 @@
 *~
+*.rpm
 *.spec
+*.tar.gz
 Makefile
 Makefile.in
 aclocal.m4
