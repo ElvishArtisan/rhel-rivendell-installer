@@ -51,3 +51,5 @@
 	accound parameters when using '--client' mode.
 2023-02-24 Fred Gleason <fredg@paravelsystems.com>
 	* Updated the HOWTO to reflect changes in the '--client' mode.
+2023-02-24 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.9.2rhel7.
