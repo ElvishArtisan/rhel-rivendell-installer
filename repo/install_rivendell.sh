@@ -4,7 +4,7 @@
 #
 # User-facing installation script for Rivendell
 #
-#   (C) Copyright 2021 Fred Gleason <fredg@paravelsystems.com>
+#   (C) Copyright 2021-2023 Fred Gleason <fredg@paravelsystems.com>
 #
 #   This program is free software; you can redistribute it and/or modify
 #   it under the terms of the GNU General Public License as
@@ -55,7 +55,6 @@ function InstallStandalone {
     CheckNetwork
     AddRepos
     /usr/share/rhel-rivendell-installer/installer_install_rivendell.sh --standalone
-#    dnf -y remove rhel-rivendell-installer
     exit 0
 }
 
@@ -64,18 +63,34 @@ function InstallServer {
     CheckNetwork
     AddRepos
     /usr/share/rhel-rivendell-installer/installer_install_rivendell.sh --server
-#    dnf -y remove rhel-rivendell-installer
     exit 0
 }
 
 
 function InstallClient {
-    echo -n "Enter IP address of Rivendell server: "
-    read RD_SERVER
+    echo -n "Enter the IP address of the Rivendell MySQL/MariaDB server: "
+    read RD_MYSQL_SERVER
+    echo -n "Enter the name of the MySQL/MariaDB Rivendell database [Rivendell]: "
+    read RD_MYSQL_DATABASE
+    if test -z $RD_MYSQL_DATABASE ; then
+        RD_MYSQL_DATABASE="Rivendell"
+    fi
+ 
+    echo -n "Enter the username of the MySQL/MariaDB Rivendell account: "
+    read RD_MYSQL_USERNAME
+ 
+    echo -n "Enter the password of the MySQL/MariaDB Rivendell account: "
+    read RD_MYSQL_PASSWORD
+ 
+    echo -n "Enter the IP address of the Rivendell NFS server [$RD_MYSQL_SERVER]: "
+    read RD_NFS_SERVER
+    if test -z $RD_NFS_SERVER ; then
+        RD_NFS_SERVER=$RD_MYSQL_SERVER
+    fi
+ 
     CheckNetwork
     AddRepos
-    /usr/share/rhel-rivendell-installer/installer_install_rivendell.sh --client $RD_SERVER
-#    dnf -y remove rhel-rivendell-installer
+    /usr/share/rhel-rivendell-installer/installer_install_rivendell.sh --client "$RD_MYSQL_SERVER" "$RD_MYSQL_USERNAME" "$RD_MYSQL_PASSWORD" "$RD_MYSQL_DATABASE" "$RD_NFS_SERVER"
     exit 0
 }
 
@@ -98,7 +113,10 @@ echo "    and audio store to be shared with other Rivendell systems over the"
 echo "    network."
 echo
 echo " 3) Client. Install just the Rivendell components, configuring it to"
-echo "    use the database and audio store on a shared server."
+echo "    use the database and audio store on a shared server. You will be"
+echo "    prompted for the IP address of the server, as well as the username"
+echo "    and password of a MySQL/MariaDB database account for accessing the"
+echo "    Rivendell database on that server."
 echo
 echo " 4) Do nothing, and exit this installer."
 echo

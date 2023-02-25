@@ -11,32 +11,91 @@
 REPO_HOSTNAME="software.paravelsystems.com"
 USER_NAME="rd"
 
+# USAGE: AddDbUser <dbname> <hostname> <username> <password>
+function AddDbUser {
+    echo "CREATE USER '${3}'@'${2}' IDENTIFIED BY '${4}';" | mysql -u root
+    echo "GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES ON ${1}.* TO '${3}'@'${2}';" | mysql -u root
+}
+
+function GenerateDefaultRivendellConfiguration {
+    mkdir -p /etc/rivendell.d
+    cat /usr/share/rhel-rivendell-installer/rd.conf-sample | sed s/%MYSQL_HOSTNAME%/$MYSQL_HOSTNAME/g | sed s/%MYSQL_LOGINNAME%/$MYSQL_LOGINNAME/g | sed s/%MYSQL_PASSWORD%/$MYSQL_PASSWORD/g | sed s^%NFS_MOUNT_SOURCE%^$NFS_MOUNT_SOURCE^g | sed s/%NFS_MOUNT_TYPE%/$NFS_MOUNT_TYPE/g > /etc/rivendell.d/rd-default.conf
+    ln -s -f /etc/rivendell.d/rd-default.conf /etc/rd.conf
+}
+
 #
 # Get Target Mode
 #
 if test $1 ; then
     case "$1" in
 	--client)
+            MYSQL_HOSTNAME=$2
+            MYSQL_LOGINNAME=$3
+            MYSQL_PASSWORD=$4
+            MYSQL_DATABASE=$5
+            NFS_HOSTNAME=$6
+            NFS_MOUNT_SOURCE=$NFS_HOSTNAME:/var/snd
+            NFS_MOUNT_TYPE="nfs"
 	    MODE="client"
 	    ;;
 
 	--server)
 	    MODE="server"
-	    IP_ADDR=$2
+            MYSQL_HOSTNAME="localhost"
+            MYSQL_LOGINNAME="rduser"
+            MYSQL_PASSWORD=`tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1`
+            MYSQL_DATABASE="Rivendell"
+            NFS_HOSTNAME=""
+            NFS_MOUNT_SOURCE=""
+            NFS_MOUNT_TYPE=""
 	    ;;
 
 	--standalone)
 	    MODE="standalone"
+            MYSQL_HOSTNAME="localhost"
+            MYSQL_LOGINNAME="rduser"
+            MYSQL_PASSWORD=`tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1`
+            MYSQL_DATABASE="Rivendell"
+            NFS_HOSTNAME=""
+            NFS_MOUNT_SOURCE=""
+            NFS_MOUNT_TYPE=""
 	    ;;
 
 	*)
-	    echo "USAGE: ./install_rivendell.sh --client|--server|--standalone"
+	    echo "invalid invocation!"
 	    exit 256
             ;;
     esac
 else
     MODE="standalone"
 fi
+
+#
+# Dump Input Values
+#
+echo -n "MODE: " >> /root/rivendell_install_log.txt
+echo $MODE >> /root/rivendell_install_log.txt
+
+echo -n "MYSQL_HOSTNAME: " >> /root/rivendell_install_log.txt
+echo $MYSQL_HOSTNAME >> /root/rivendell_install_log.txt
+
+echo -n "MYSQL_LOGINNAME: " >> /root/rivendell_install_log.txt
+echo $MYSQL_LOGINNAME >> /root/rivendell_install_log.txt
+
+echo -n "MYSQL_PASSWORD: " >> /root/rivendell_install_log.txt
+echo $MYSQL_PASSWORD >> /root/rivendell_install_log.txt
+
+echo -n "MYSQL_DATABASE: " >> /root/rivendell_install_log.txt
+echo $MYSQL_DATABASE >> /root/rivendell_install_log.txt
+
+echo -n "NFS_HOSTNAME: " >> /root/rivendell_install_log.txt
+echo $NFS_HOSTNAME >> /root/rivendell_install_log.txt
+
+echo -n "NFS_MOUNT_SOURCE: " >> /root/rivendell_install_log.txt
+echo $NFS_MOUNT_SOURCE >> /root/rivendell_install_log.txt
+
+echo -n "NFS_MOUNT_TYPE: " >> /root/rivendell_install_log.txt
+echo $NFS_MOUNT_TYPE >> /root/rivendell_install_log.txt
 
 #
 # Configure Repos
@@ -59,18 +118,12 @@ if test $MODE = "server" ; then
     systemctl enable mariadb
 
     #
-    # Enable DB Access for localhost
+    # Create Empty Database
     #
-    echo "CREATE DATABASE Rivendell;" | mysql -u root
-    echo "CREATE USER 'rduser'@'localhost' IDENTIFIED BY 'letmein';" | mysql -u root
-    echo "GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES ON Rivendell.* TO 'rduser'@'localhost';" | mysql -u root
-
-    #
-    # Enable DB Access for all remote hosts
-    #
-    echo "CREATE USER 'rduser'@'%' IDENTIFIED BY 'letmein';" | mysql -u root
-    echo "GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES ON Rivendell.* TO 'rduser'@'%';" | mysql -u root
-
+    echo "CREATE DATABASE $MYSQL_DATABASE;" | mysql -u root
+    AddDbUser $MYSQL_DATABASE "localhost" $MYSQL_LOGINNAME $MYSQL_PASSWORD
+    AddDbUser $MYSQL_DATABASE "%" $MYSQL_LOGINNAME $MYSQL_PASSWORD
+    
     #
     # Enable NFS Access for all remote hosts
     #
@@ -99,11 +152,10 @@ if test $MODE = "standalone" ; then
     systemctl enable mariadb
 
     #
-    # Enable DB Access for localhost
+    # Create Empty Database
     #
-    echo "CREATE DATABASE Rivendell;" | mysql -u root
-    echo "CREATE USER 'rduser'@'localhost' IDENTIFIED BY 'letmein';" | mysql -u root
-    echo "GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,INDEX,ALTER,CREATE TEMPORARY TABLES,LOCK TABLES ON Rivendell.* TO 'rduser'@'localhost';" | mysql -u root
+    echo "CREATE DATABASE $MYSQL_DATABASE;" | mysql -u root
+    AddDbUser $MYSQL_DATABASE "localhost" $MYSQL_LOGINNAME $MYSQL_PASSWORD
 
     #
     # Enable CIFS File Sharing
@@ -142,6 +194,8 @@ patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
 #patch /etc/gdm/custom.conf /usr/share/rhel-rivendell-installer/autologin.patch
 dnf -y install lame-libs rivendell
 
+GenerateDefaultRivendellConfiguration
+
 if test $MODE = "server" ; then
     #
     # Initialize Automounter
@@ -154,7 +208,7 @@ if test $MODE = "server" ; then
     # Create Rivendell Database
     #
     rddbmgr --create --generate-audio
-    echo "update STATIONS set REPORT_EDITOR_PATH=\"/usr/bin/gedit\"" | mysql -u rduser -pletmein Rivendell
+    echo "update `STATIONS` set `REPORT_EDITOR_PATH`='/usr/bin/gedit'" | mysql -u $MYSQL_LOGINNAME -p$MYSQL_PASSWORD $MYSQL_DATABASE
 
     #
     # Create common directories
@@ -186,7 +240,7 @@ if test $MODE = "standalone" ; then
     # Create Rivendell Database
     #
     rddbmgr --create --generate-audio
-    echo "update STATIONS set REPORT_EDITOR_PATH=\"/usr/bin/gedit\"" | mysql -u rduser -pletmein Rivendell
+    echo "update `STATIONS` set `REPORT_EDITOR_PATH`='/usr/bin/gedit'" | mysql -u $MYSQL_LOGINNAME -p$MYSQL_PASSWORD $MYSQL_DATABASE
 
     #
     # Create common directories
@@ -212,7 +266,7 @@ if test $MODE = "client" ; then
     # Initialize Automounter
     #
     rm -f /etc/auto.rd.audiostore
-    cat /usr/share/rhel-rivendell-installer/auto.rd.audiostore.template | sed s/@IP_ADDRESS@/$IP_ADDR/g > /etc/auto.rd.audiostore
+    cat /usr/share/rhel-rivendell-installer/auto.rd.audiostore.template | sed s/@IP_ADDRESS@/$NFS_HOSTNAME/g > /etc/auto.rd.audiostore
 
     rm -f /home/$USER_NAME/rd_xfer
     ln -s /misc/rd_xfer /home/$USER_NAME/rd_xfer
@@ -225,15 +279,8 @@ if test $MODE = "client" ; then
     rm -f /home/$USER_NAME/traffic_import
     ln -s /misc/traffic_import /home/$USER_NAME/traffic_import
     rm -f /etc/auto.misc
-    cat /usr/share/rhel-rivendell-installer/auto.misc.client_template | sed s/@IP_ADDRESS@/$IP_ADDR/g > /etc/auto.misc
+    cat /usr/share/rhel-rivendell-installer/auto.misc.client_template | sed s/@IP_ADDRESS@/$NFS_HOSTNAME/g > /etc/auto.misc
     systemctl enable autofs
-
-    #
-    # Configure Rivendell
-    #
-    cat /etc/rd.conf | sed s/localhost/$IP_ADDR/g > /etc/rd-temp.conf
-    rm -f /etc/rd.conf
-    mv /etc/rd-temp.conf /etc/rd.conf
 fi
 
 #
