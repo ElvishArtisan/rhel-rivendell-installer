@@ -101,7 +101,7 @@
 	install the 'rivendell-opsguide' package.
 2023-01-21 Fred Gleason <fredg@paravelsystems.com>
 	* Incremented the package version to 0.9.3rhel8.
-2023-02-24 Fred Gleason <fredg@paravelsystems.com>
+2023-02-25 Fred Gleason <fredg@paravelsystems.com>
 	* Refactored the installation scripts to generate and apply a
 	cryptographically strong password for MariaDB access when using
 	'--standalone' and --server' modes.
