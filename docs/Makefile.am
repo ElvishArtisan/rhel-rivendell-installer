@@ -51,6 +51,10 @@ EXTRA_DIST = index.html\
              rhel7-setlanguage.png\
              rhel7-set-root-password.png
 
+post:	
+	rsync -rptgoDv --copy-links --delete --exclude Makefile --exclude Makefile.am --exclude Makefile.in --exclude index.xml . software.paravelsystems.com::howtos/CentOS/7rd4/
+
+
 CLEANFILES = *~
 MAINTAINERCLEANFILES = *~\
                        *.1\
