@@ -113,3 +113,5 @@
 	* Fixed a regression in 'assets/installer_install_rivendell.sh' that
 	caused the default configuration of the Report Editor to fail with
 	a SQL error when using 'standalone' and 'server' installation modes.
+2023-03-07 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 0.9.4rhel8.
