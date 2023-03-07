@@ -55,3 +55,7 @@
 	* Incremented the package version to 0.9.2rhel7.
 2023-02-25 Fred Gleason <fredg@paravelsystems.com>
 	* Added a 'make post' target in 'docs/'.
+2023-03-07 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed a regression in 'assets/installer_install_rivendell.sh' that
+	caused the default configuration of the Report Editor to fail with
+	a SQL error when using 'standalone' and 'server' installation modes.
