@@ -109,3 +109,7 @@
 	accound parameters when using '--client' mode.
 2023-02-25 Fred Gleason <fredg@paravelsystems.com>
 	* Updated the HOWTO to reflect changes in the '--client' mode.
+2023-03-07 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed a regression in 'assets/installer_install_rivendell.sh' that
+	caused the default configuration of the Report Editor to fail with
+	a SQL error when using 'standalone' and 'server' installation modes.

@@ -208,7 +208,7 @@ if test $MODE = "server" ; then
     # Create Rivendell Database
     #
     rddbmgr --create --generate-audio
-    echo "update `STATIONS` set `REPORT_EDITOR_PATH`='/usr/bin/gedit'" | mysql -u $MYSQL_LOGINNAME -p$MYSQL_PASSWORD $MYSQL_DATABASE
+    echo update\ \`STATIONS\`\ set\ \`REPORT_EDITOR_PATH\`=\'/usr/bin/gedit\' | mysql -u $MYSQL_LOGINNAME -p$MYSQL_PASSWORD $MYSQL_DATABASE
 
     #
     # Create common directories
