@@ -31,8 +31,6 @@ EXTRA_DIST = asound.conf\
              no_screen_blank.conf\
              paravel_support.pdf\
              rd.conf-sample\
-             rdairplay_skin.png\
-             rdpanel_skin.png\
              Reyware.repo\
              RPM-GPG-KEY-Reyware\
              rsyslog.conf.patch\

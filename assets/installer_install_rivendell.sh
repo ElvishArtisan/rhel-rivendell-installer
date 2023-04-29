@@ -176,8 +176,6 @@ cp /usr/share/rhel-rivendell-installer/asound.conf /etc/
 cp /usr/share/rhel-rivendell-installer/Reyware.repo /etc/yum.repos.d/
 cp /usr/share/rhel-rivendell-installer/RPM-GPG-KEY-Reyware /etc/pki/rpm-gpg/
 mkdir -p /usr/share/pixmaps/rivendell
-cp /usr/share/rhel-rivendell-installer/rdairplay_skin.png /usr/share/pixmaps/rivendell/
-cp /usr/share/rhel-rivendell-installer/rdpanel_skin.png /usr/share/pixmaps/rivendell/
 mv /etc/samba/smb.conf /etc/samba/smb-original.conf
 cp /usr/share/rhel-rivendell-installer/smb.conf /etc/samba/
 cp /usr/share/rhel-rivendell-installer/no_screen_blank.conf /etc/X11/xorg.conf.d/
