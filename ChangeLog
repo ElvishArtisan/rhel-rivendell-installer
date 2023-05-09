@@ -65,3 +65,6 @@
 	* Removed the default skins for rdairplay(1) and rdpanel(1).
 2023-05-09 Fred Gleason <fredg@paravelsystems.com>
 	* Incremented the package version to 1.0.0rhel7.
+2023-05-09 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed a regression in 'rhel-rivendell-installer.spec.in' that
+	broke the 'make rpm' target.

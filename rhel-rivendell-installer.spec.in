@@ -59,7 +59,6 @@ cp assets/asound.conf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/*.repo $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/RPM-GPG-KEY* $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/autologin.patch $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
-cp assets/*.png $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/no_screen_blank.conf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/auto.rd.audiostore.template $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/auto.misc.client_template $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
