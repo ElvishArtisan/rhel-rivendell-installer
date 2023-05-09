@@ -63,3 +63,5 @@
 	* Incremented the package version to 0.9.3rhel7.
 2023-03-29 Fred Gleason <fredg@paravelsystems.com>
 	* Removed the default skins for rdairplay(1) and rdpanel(1).
+2023-05-09 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 1.0.0rhel7.
