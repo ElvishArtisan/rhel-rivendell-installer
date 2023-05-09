@@ -68,3 +68,5 @@
 2023-05-09 Fred Gleason <fredg@paravelsystems.com>
 	* Fixed a regression in 'rhel-rivendell-installer.spec.in' that
 	broke the 'make rpm' target.
+2023-05-09 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 1.0.1rhel7.
