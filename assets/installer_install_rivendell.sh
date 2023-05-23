@@ -119,6 +119,7 @@ if test $MODE = "server" ; then
     # Install MariaDB
     #
     yum -y install mariadb-server
+    cp /usr/share/rhel-rivendell-installer/rivendell.cnf /etc/my.cnf.d/
     systemctl start mariadb
     systemctl enable mariadb
 
@@ -153,11 +154,9 @@ if test $MODE = "standalone" ; then
     # Install MariaDB
     #
     yum -y install mariadb-server
+    cp /usr/share/rhel-rivendell-installer/rivendell.cnf /etc/my.cnf.d/
     systemctl start mariadb
     systemctl enable mariadb
-    mkdir -p /etc/systemd/system/mariadb.service.d/
-    cp /usr/share/rhel-rivendell-installer/limits.conf /etc/systemd/system/mariadb.service.d/
-    systemctl daemon-reload
 
     #
     # Create Empty Database

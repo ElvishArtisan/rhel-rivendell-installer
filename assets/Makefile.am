@@ -27,11 +27,11 @@ EXTRA_DIST = asihpi.conf\
              auto.misc.template\
              auto.rd.audiostore.template\
              installer_install_rivendell.sh\
-             limits.conf\
              no_screen_blank.conf\
              paravel_support.pdf\
              rd.conf-sample\
              Reyware.repo\
+             rivendell.cnf\
              RPM-GPG-KEY-Reyware\
              rsyslog.conf.patch\
              selinux.config\
