@@ -51,7 +51,7 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer
 cp assets/installer_install_rivendell.sh $RPM_BUILD_ROOT/%{_datadir}/rhel-rivendell-installer
 cp assets/selinux.config $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/smb.conf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
-cp assets/limits.conf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
+cp assets/rivendell.cnf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/xfce-config.tgz $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/rsyslog.conf.patch $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/
 cp assets/asound.conf $RPM_BUILD_ROOT%{_datadir}/rhel-rivendell-installer/

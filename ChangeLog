@@ -115,3 +115,8 @@
 	a SQL error when using 'standalone' and 'server' installation modes.
 2023-03-07 Fred Gleason <fredg@paravelsystems.com>
 	* Incremented the package version to 0.9.4rhel8.
+2023-05-23 Fred Gleason <fredg@paravelsystems.com>
+	* Added a '/etc/my.cnf.d/rivendell.cnf' configuration file to the
+	'standalone' and 'server' installations.
+	* Removed '/etc/systemd/system/mariadb.service.d/limits.conf' from
+	the 'standalone' installation.

@@ -27,7 +27,7 @@ EXTRA_DIST = asound.conf\
              auto.rd.audiostore.template\
              fop-2.6-bin.tar.gz\
              installer_install_rivendell.sh\
-             limits.conf\
+             rivendell.cnf\
              no_screen_blank.conf\
              paravel_support.pdf\
              rd.conf-sample\
