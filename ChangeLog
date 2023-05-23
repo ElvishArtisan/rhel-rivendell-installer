@@ -122,3 +122,5 @@
 	'standalone' and 'server' installations.
 	* Removed '/etc/systemd/system/mariadb.service.d/limits.conf' from
 	the 'standalone' installation.
+2023-05-23 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 1.0.0rhel8.
