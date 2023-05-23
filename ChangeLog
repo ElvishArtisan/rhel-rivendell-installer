@@ -126,3 +126,5 @@
 	* Incremented the package version to 1.0.0rhel8.
 2023-05-23 Fred Gleason <fredg@paravelsystems.com>
 	* Fixed a regression that broke the 'make rpm' target.
+2023-05-23 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 1.0.1rhel8.
