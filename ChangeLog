@@ -128,3 +128,6 @@
 	* Fixed a regression that broke the 'make rpm' target.
 2023-05-23 Fred Gleason <fredg@paravelsystems.com>
 	* Incremented the package version to 1.0.1rhel8.
+2023-06-11 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed a regression in 'repo/sanity_check.sh' that broke the
+	'make sane' target for distro version 8.8.
