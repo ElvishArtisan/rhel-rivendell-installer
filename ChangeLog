@@ -133,3 +133,6 @@
 	'make sane' target for distro version 8.8.
 2023-06-16 Fred Gleason <fredg@paravelsystems.com>
 	* Removed the Release Candidate warning from the installation HOWTO.
+2023-06-16 Fred Gleason <fredg@paravelsystems.com>
+	* Fixed a bug in the build system that caused the 'make howto' target
+	to post code to an incorrect location.
