@@ -131,3 +131,5 @@
 2023-06-11 Fred Gleason <fredg@paravelsystems.com>
 	* Fixed a regression in 'repo/sanity_check.sh' that broke the
 	'make sane' target for distro version 8.8.
+2023-06-16 Fred Gleason <fredg@paravelsystems.com>
+	* Removed the Release Candidate warning from the installation HOWTO.
