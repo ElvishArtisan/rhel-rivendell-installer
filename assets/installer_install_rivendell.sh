@@ -107,7 +107,7 @@ wget https://$REPO_HOSTNAME/rhel/8com/Paravel-Commercial.repo -P /etc/yum.repos.
 #
 # Install Dependencies
 #
-dnf -y install patch evince telnet lwmon nc samba paravelview ntpstat emacs twolame-libs libmad nfs-utils cifs-utils samba-client net-tools alsa-utils cups tigervnc-server-minimal pygtk2 cups gedit ntfs-3g ntfsprogs autofs
+dnf -y install patch evince telnet lwmon nc samba paravelview ntpstat emacs twolame-libs libmad nfs-utils cifs-utils samba-client net-tools alsa-utils cups tigervnc-server-minimal pygtk2 cups gedit ntfs-3g ntfsprogs autofs jack2
 
 if test $MODE = "server" ; then
     #
