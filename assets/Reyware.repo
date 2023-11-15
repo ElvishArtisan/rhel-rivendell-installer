@@ -4,3 +4,10 @@ name = File importer for the AMB-OS AMR-100 satellite receiver
 baseurl = https://reyware.us/rpms/
 gpgcheck = 1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Reyware
+
+[Reyware-Beta]
+enabled = 0
+name = File importer for the AMB-OS AMR-100 satellite receiver (BETA)
+baseurl = https://reyware.us/beta/rpms/
+gpgcheck = 1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-ReywareLLC
